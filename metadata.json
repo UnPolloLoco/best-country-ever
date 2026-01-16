@@ -1,0 +1,250 @@
+{
+    "airPollution.csv": {
+        "name": "Air Pollution (PM2.5)",
+        "desc": "Annual exposure to particles under 2.5 microns. The WHO recommends keeping exposure less than 5 µg/m³, but no country has reached that goal yet.",
+        "unit": "µg/m³",
+        "url": "https://ourworldindata.org/grapher/pm25-air-pollution",
+        "dates": [2019],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 1.00},
+            {"in": 5,   "out": 0.95},
+            {"in": 10,  "out": 0.75},
+            {"in": 70,  "out": 0.00}
+        ]
+    },
+    "co2PerCapita.csv": {
+        "name": "CO₂ Per Capita",
+        "desc": "The amount of CO₂ a country emits, divided by its population.",
+        "unit": "tonnes",
+        "url": "https://ourworldindata.org/grapher/co-emissions-per-capita",
+        "dates": [2024],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 1.00},
+            {"in": 5,   "out": 0.70},
+            {"in": 20,  "out": 0.10},
+            {"in": 50,  "out": 0.00}
+        ]
+    },
+    "debtToGdp.csv": {
+        "name": "National Debt vs. GDP",
+        "desc": "A country's debt as a percentage of its GDP.",
+        "unit": "%",
+        "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
+        "dates": [2024, 2025],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 1.00},
+            {"in": 60, "out": 0.60},
+            {"in": 100, "out": 0.40},
+            {"in": 250, "out": 0.00}
+        ]
+    },
+    "democracyIndex.csv": {
+        "name": "Democracy Index",
+        "desc": "Quality of democracy, on a scale from 0 to 10.",
+        "unit": null,
+        "url": "https://ourworldindata.org/grapher/democracy-index-eiu",
+        "dates": [2024],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 0.00},
+            {"in": 3,   "out": 0.00},
+            {"in": 6,   "out": 0.40},
+            {"in": 10,  "out": 1.00}
+        ]
+    },
+    "drugUse.csv": {
+        "name": "Drug Fatalities",
+        "desc": "The WHO's estimated death count for drug use disorders.",
+        "unit": "deaths per 100,000",
+        "url": "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
+        "dates": [2021],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 1.00},
+            {"in": 1,   "out": 0.75},
+            {"in": 2,   "out": 0.50},
+            {"in": 10,  "out": 0.25},
+            {"in": 32,  "out": 0.00}
+        ]
+    },
+    "education.csv": {
+        "name": "Years of Formal Education",
+        "desc": "Average amount of years one spends recieving formal education.",
+        "unit": "years",
+        "url": "https://ourworldindata.org/grapher/mean-years-of-schooling-long-run",
+        "dates": [2023],
+        "weight": 100,
+        "values": [
+            {"in": 5,    "out": 0.00},
+            {"in": 10,   "out": 0.70},
+            {"in": 12,   "out": 0.85},
+            {"in": 15,   "out": 1.00}
+        ]
+    },
+    "fertility.csv": {
+        "name": "Fertility Rate",
+        "desc": "Estimated amount of successful births per woman.",
+        "unit": "births per woman",
+        "url": "https://ourworldindata.org/grapher/children-per-woman-un",
+        "dates": [2023],
+        "weight": 100,
+        "values": [
+            {"in": 0,      "out": 0.00},
+            {"in": 1.75,   "out": 1.00},
+            {"in": 2.5,    "out": 1.00},
+            {"in": 4,      "out": 0.3},
+            {"in": 6.5,    "out": 0.00}
+        ]
+    },
+    "gdpPerCapita.csv": {
+        "name": "GDP Per Capita",
+        "desc": "A country's GDP, divided by its population.",
+        "unit": "international dollars (2021)",
+        "url": "https://ourworldindata.org/grapher/gdp-per-capita-worldbank",
+        "dates": [2022],
+        "weight": 100,
+        "values": [
+            {"in": 0,       "out": 0.00},
+            {"in": 10000,   "out": 0.45},
+            {"in": 20000,   "out": 0.70},
+            {"in": 50000,   "out": 0.90},
+            {"in": 135000,  "out": 1.00}
+        ]
+    },
+    "happiness.csv": {
+        "name": "Happiness",
+        "desc": "Subjective happiness on a scale from 0 to 10, where 0 is the worst life possible and 10 is the best.",
+        "unit": null,
+        "url": "https://ourworldindata.org/grapher/happiness-cantril-ladder",
+        "dates": [2014, 2024],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 0.00},
+            {"in": 6.5, "out": 0.80},
+            {"in": 10,  "out": 1.00}
+        ]
+    },
+    "lifeExpectancy.csv": {
+        "name": "Life Expectancy",
+        "desc": "Period life expectancy.",
+        "unit": "years",
+        "url": "https://ourworldindata.org/grapher/life-expectancy",
+        "dates": [2023],
+        "weight": 100,
+        "values": [
+            {"in": 50,   "out": 0.00},
+            {"in": 70,   "out": 0.70},
+            {"in": 90,   "out": 1.00}
+        ]
+    },
+    "literacy.csv": {
+        "name": "Literacy",
+        "desc": "The share of people with a basic reading/writing ability and simple math skills.",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/cross-country-literacy-rates",
+        "dates": [2012, 2023],
+        "weight": 100,
+        "values": [
+            {"in": 30,    "out": 0.00},
+            {"in": 60,    "out": 0.20},
+            {"in": 90,    "out": 0.80},
+            {"in": 100,   "out": 1.00}
+        ]
+    },
+    "smoking.csv": {
+        "name": "Smoking",
+        "desc": "Estimated amount of people who use tobacco (15+ year olds).",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/share-of-adults-who-smoke",
+        "dates": [2022],
+        "weight": 100,
+        "values": [
+            {"in": 3,   "out": 1.00},
+            {"in": 20,  "out": 0.50},
+            {"in": 50,  "out": 0.00}
+        ]
+    },
+    "territoryControl.csv": {
+        "name": "Territory Control",
+        "desc": "The amount of a country's land that they have actual control over.",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/percentage-of-territory-controlled-by-government",
+        "dates": [2024],
+        "weight": 100,
+        "values": [
+            {"in": 40,   "out": 0.00},
+            {"in": 90,   "out": 0.80},
+            {"in": 95,   "out": 0.95},
+            {"in": 100,  "out": 1.00}
+        ]                 
+
+    },
+    "topOneIncome.csv": {
+        "name": "Top 1%'s Share of Income",
+        "desc": "Share of a country's income which is in the hands of the top 1% richest citizens. Calculated before tax.",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/income-share-top-1-before-tax-wid",
+        "dates": [2023],
+        "weight": 100,
+        "values": [
+            {"in": 6,    "out": 1.00},
+            {"in": 15,   "out": 0.50},
+            {"in": 27,   "out": 0.00}
+        ]
+    },
+    "topTenIncome.csv": {
+        "name": "Top 10%'s Share of Income",
+        "desc": "Share of a country's income which is in the hands of the top 10% richest citizens. Calculated before tax.",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/income-share-top-10-before-tax-wid",
+        "dates": [2023],
+        "weight": 100,
+        "values": [
+            {"in": 25,   "out": 1.00},
+            {"in": 48,   "out": 0.50},
+            {"in": 66,   "out": 0.00}
+        ]
+    },
+    "waterSanitationHygiene.csv": {
+        "name": "Unsafe Water, Sanitation, and Hygiene",
+        "desc": "Amount of deaths caused by unsafe water, sanitation, or hygiene.",
+        "unit": "deaths per 100,000",
+        "url": "https://ourworldindata.org/grapher/mortality-rate-attributable-to-wash",
+        "dates": [2019],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 1.00},
+            {"in": 5,   "out": 0.90},
+            {"in": 10,  "out": 0.70},
+            {"in": 30,  "out": 0.15},
+            {"in": 110, "out": 0.00}
+        ]
+    },
+    "womensCivilRights.csv": {
+        "name": "Women's Civil Rights Index",
+        "desc": "This index, scaled from 0 to 1, is a combination of several factors including justice and freedom of movement.",
+        "unit": null,
+        "url": "https://ourworldindata.org/grapher/women-civil-liberties-index",
+        "dates": [2024],
+        "weight": 100,
+        "values": [
+            {"in": 0.00,   "out": 0.00},
+            {"in": 0.75,   "out": 0.50},
+            {"in": 1.00,   "out": 1.00}
+        ]
+    },
+    "_____.csv": {
+        "name": "",
+        "desc": "",
+        "unit": "",
+        "url": "",
+        "dates": [],
+        "weight": 100,
+        "values": [
+            {"in": 0,   "out": 0.00}
+        ]
+    }
+}

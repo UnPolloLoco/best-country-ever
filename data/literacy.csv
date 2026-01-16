@@ -1,0 +1,192 @@
+Entity,Code,Year,Literacy rate,time
+Afghanistan,,,37,2021
+Albania,,,98.81623,2017
+Algeria,,,,2022
+Andorra,,,,2022
+Angola,,,66.23586,2015
+Antigua and Barbuda,,,,2022
+Argentina,,,,2022
+Armenia,ARM,2022,99.825,2022
+Australia,,,,2022
+Austria,,,,2022
+Azerbaijan,,,100,2023
+Bahamas,,,,2022
+Bahrain,BHR,2022,98,2022
+Bangladesh,BGD,2022,79,2022
+Barbados,,,,2022
+Belarus,,,100,2019
+Belgium,,,,2022
+Belize,,,90.91604,2015
+Benin,BEN,2022,51.37877,2022
+Bhutan,,,67,2017
+Bolivia,,,94,2020
+Bosnia and Herzegovina,,,97,2013
+Botswana,,,,2022
+Brazil,,,93,2018
+Brunei,,,,2022
+Bulgaria,,,,2022
+Burkina Faso,BFA,2022,40.92361,2022
+Burundi,,,68,2017
+Cambodia,,,71.92725,2021
+Cameroon,,,72.54713,2018
+Canada,,,,2022
+Cape Verde,,,87,2015
+Central African Republic,,,42.44279,2019
+Chad,,,30.62792,2019
+Chile,,,96,2017
+China,,,97,2020
+Colombia,,,96,2020
+Comoros,,,,2022
+Congo,,,,2022
+Costa Rica,,,,2022
+Cote d'Ivoire,,,50.00064,2021
+Croatia,,,,2022
+Cuba,,,97.65491,2019
+Cyprus,,,,2022
+Democratic Republic of Congo,,,73.55303,2018
+Denmark,,,,2022
+Djibouti,,,,2022
+Dominican Republic,,,94,2016
+East Timor,,,65.77913,2016
+Ecuador,ECU,2022,94,2022
+Egypt,,,71,2017
+El Salvador,,,90,2023
+Equatorial Guinea,,,,2022
+Eritrea,,,,2022
+Estonia,,,,2022
+Eswatini,SWZ,2022,90.74702,2022
+Ethiopia,,,47.49159,2016
+Fiji,,,,2022
+Finland,,,,2022
+France,,,,2022
+French Guiana,,,,2022
+Gabon,,,88.85834,2021
+Gambia,,,51.6374,2021
+Georgia,GEO,2022,100,2022
+Germany,,,,2022
+Ghana,,,76.48568,2021
+Greece,,,,2022
+Greenland,,,,2022
+Grenada,,,,2022
+Guatemala,GTM,2022,83.03117,2022
+Guinea,,,40,2018
+Guinea-Bissau,GNB,2022,63.93413,2022
+Guyana,,,85.63835,2020
+Haiti,,,68.00986,2017
+Honduras,,,89,2019
+Hungary,,,,2022
+Iceland,,,,2022
+India,IND,2022,76,2022
+Indonesia,,,96,2020
+Iran,,,86,2016
+Iraq,,,86,2017
+Ireland,,,,2022
+Israel,,,,2022
+Italy,,,99,2019
+Jamaica,,,,2022
+Japan,,,,2022
+Jordan,,,95,2023
+Kazakhstan,,,,2022
+Kenya,,,,2022
+Kiribati,,,97.95971,2018
+Kuwait,,,96,2020
+Kyrgyzstan,,,,2022
+Laos,,,85,2015
+Latvia,,,,2022
+Lebanon,,,93,2018
+Lesotho,,,86.24087,2018
+Liberia,,,,2022
+Libya,,,,2022
+Liechtenstein,,,,2022
+Lithuania,,,,2022
+Luxembourg,,,,2022
+Madagascar,,,74.68614,2021
+Malawi,,,70.15227,2020
+Malaysia,MYS,2022,96,2022
+Maldives,,,98.21186,2019
+Mali,,,35,2018
+Malta,,,,2022
+Marshall Islands,,,,2022
+Mauritania,,,59.52966,2020
+Mauritius,,,93,2016
+Mexico,,,95,2020
+Moldova,,,99,2014
+Monaco,,,,2022
+Mongolia,MNG,2022,98.72622,2022
+Montenegro,,,98.5344,2018
+Morocco,,,76,2014
+Mozambique,,,60,2020
+Myanmar,,,89,2019
+Namibia,,,,2022
+Nauru,,,96.58654,2023
+Nepal,,,68.7125,2019
+Netherlands,,,,2022
+New Caledonia,,,,2022
+New Zealand,,,,2022
+Nicaragua,,,,2022
+Niger,NER,2022,35.60971,2022
+Nigeria,,,63.15554,2021
+North Korea,,,,2022
+North Macedonia,,,,2022
+Norway,,,,2022
+Oman,OMN,2022,97,2022
+Pakistan,,,58.8561,2021
+Palau,,,97,2015
+Palestine,PSE,2022,98,2022
+Panama,,,96,2019
+Papua New Guinea,,,70.06368,2017
+Paraguay,,,95,2020
+Peru,,,94,2020
+Philippines,,,98,2020
+Poland,,,,2022
+Portugal,,,,2022
+Puerto Rico,,,92,2017
+Qatar,,,98,2014
+Romania,,,99,2021
+Russia,,,100,2021
+Rwanda,RWA,2022,79,2022
+Saint Vincent and the Grenadines,,,,2022
+Samoa,,,97.99026,2019
+San Marino,SMR,2022,100,2022
+Sao Tome and Principe,,,87.43846,2019
+Saudi Arabia,,,98,2020
+Senegal,,,50.35582,2023
+Serbia,,,99,2019
+Seychelles,,,,2022
+Sierra Leone,,,43.57778,2019
+Singapore,,,98,2021
+Slovenia,,,,2022
+Solomon Islands,,,,2022
+Somalia,SOM,2022,54,2022
+South Africa,,,90,2021
+South Korea,,,,2022
+South Sudan,,,,2022
+Spain,,,100,2021
+Sri Lanka,LKA,2022,92,2022
+Sudan,,,,2022
+Suriname,,,93,2012
+Sweden,,,,2022
+Switzerland,,,,2022
+Syria,,,94,2021
+Tajikistan,,,,2022
+Tanzania,,,78,2015
+Thailand,THA,2022,91.09987,2022
+Togo,TGO,2022,72.59589,2022
+Tonga,,,91.05162,2019
+Trinidad and Tobago,,,,2022
+Tunisia,,,86.24682,2023
+Turkey,,,97,2021
+Turkmenistan,,,,2022
+Uganda,,,69.10132,2016
+Ukraine,,,,2022
+United Arab Emirates,ARE,2022,98,2022
+United Kingdom,,,,2022
+United States,,,,2022
+Uruguay,URY,2022,99,2022
+Uzbekistan,UZB,2022,100,2022
+Vanuatu,,,87.96032,2023
+Venezuela,,,97,2016
+Vietnam,VNM,2022,96,2022
+Yemen,,,,2022
+Zambia,,,71.1323,2018
+Zimbabwe,,,93.22755,2019
