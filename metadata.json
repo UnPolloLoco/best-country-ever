@@ -4,6 +4,7 @@
         "desc": "Annual exposure to particles under 2.5 microns. The WHO recommends keeping exposure less than 5 µg/m³, but no country has reached that goal yet.",
         "unit": "µg/m³",
         "url": "https://ourworldindata.org/grapher/pm25-air-pollution",
+        "dataHeader": "Concentrations of fine particulate matter (PM2.5) - Residence area type: Total",
         "dates": [2019],
         "weight": 100,
         "values": [
@@ -18,6 +19,7 @@
         "desc": "The amount of CO₂ a country emits, divided by its population.",
         "unit": "tonnes",
         "url": "https://ourworldindata.org/grapher/co-emissions-per-capita",
+        "dataHeader": "Annual CO₂ emissions (per capita)",
         "dates": [2024],
         "weight": 100,
         "values": [
@@ -32,6 +34,7 @@
         "desc": "A country's debt as a percentage of its GDP.",
         "unit": "%",
         "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
+        "dataHeader": "Debt-GDP Ratio",
         "dates": [2024, 2025],
         "weight": 100,
         "values": [
@@ -46,6 +49,7 @@
         "desc": "Quality of democracy, on a scale from 0 to 10.",
         "unit": null,
         "url": "https://ourworldindata.org/grapher/democracy-index-eiu",
+        "dataHeader": "Democracy index",
         "dates": [2024],
         "weight": 100,
         "values": [
@@ -60,6 +64,7 @@
         "desc": "The WHO's estimated death count for drug use disorders.",
         "unit": "deaths per 100,000",
         "url": "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
+        "dataHeader": "Death rate from drug use disorders among both sexes",
         "dates": [2021],
         "weight": 100,
         "values": [
@@ -75,6 +80,7 @@
         "desc": "Average amount of years one spends recieving formal education.",
         "unit": "years",
         "url": "https://ourworldindata.org/grapher/mean-years-of-schooling-long-run",
+        "dataHeader": "Average years of schooling",
         "dates": [2023],
         "weight": 100,
         "values": [
@@ -89,6 +95,7 @@
         "desc": "Estimated amount of successful births per woman.",
         "unit": "births per woman",
         "url": "https://ourworldindata.org/grapher/children-per-woman-un",
+        "dataHeader": "Fertility rate",
         "dates": [2023],
         "weight": 100,
         "values": [
@@ -104,6 +111,7 @@
         "desc": "A country's GDP, divided by its population.",
         "unit": "international dollars (2021)",
         "url": "https://ourworldindata.org/grapher/gdp-per-capita-worldbank",
+        "dataHeader": "GDP per capita",
         "dates": [2022],
         "weight": 100,
         "values": [
@@ -119,6 +127,7 @@
         "desc": "Subjective happiness on a scale from 0 to 10, where 0 is the worst life possible and 10 is the best.",
         "unit": null,
         "url": "https://ourworldindata.org/grapher/happiness-cantril-ladder",
+        "dataHeader": "Cantril ladder score",
         "dates": [2014, 2024],
         "weight": 100,
         "values": [
@@ -132,6 +141,7 @@
         "desc": "Period life expectancy.",
         "unit": "years",
         "url": "https://ourworldindata.org/grapher/life-expectancy",
+        "dataHeader": "Life expectancy - Sex: total - Age: 0 - Type: period",
         "dates": [2023],
         "weight": 100,
         "values": [
@@ -145,6 +155,7 @@
         "desc": "The share of people with a basic reading/writing ability and simple math skills.",
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/cross-country-literacy-rates",
+        "dataHeader": "Literacy rate",
         "dates": [2012, 2023],
         "weight": 100,
         "values": [
@@ -159,6 +170,7 @@
         "desc": "Estimated amount of people who use tobacco (15+ year olds).",
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/share-of-adults-who-smoke",
+        "dataHeader": "Share of adults who smoke or use tobacco (age-standardized)",
         "dates": [2022],
         "weight": 100,
         "values": [
@@ -172,6 +184,7 @@
         "desc": "The amount of a country's land that they have actual control over.",
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/percentage-of-territory-controlled-by-government",
+        "dataHeader": "Territory under state control (central estimate)",
         "dates": [2024],
         "weight": 100,
         "values": [
@@ -187,6 +200,7 @@
         "desc": "Share of a country's income which is in the hands of the top 1% richest citizens. Calculated before tax.",
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/income-share-top-1-before-tax-wid",
+        "dataHeader": "Top 1% - Share (Pretax) (Estimated)",
         "dates": [2023],
         "weight": 100,
         "values": [
@@ -200,6 +214,7 @@
         "desc": "Share of a country's income which is in the hands of the top 10% richest citizens. Calculated before tax.",
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/income-share-top-10-before-tax-wid",
+        "dataHeader": "Richest decile - Share (Pretax) (Estimated)",
         "dates": [2023],
         "weight": 100,
         "values": [
@@ -213,6 +228,7 @@
         "desc": "Amount of deaths caused by unsafe water, sanitation, or hygiene.",
         "unit": "deaths per 100,000",
         "url": "https://ourworldindata.org/grapher/mortality-rate-attributable-to-wash",
+        "dataHeader": "Mortality rate",
         "dates": [2019],
         "weight": 100,
         "values": [
@@ -228,23 +244,13 @@
         "desc": "This index, scaled from 0 to 1, is a combination of several factors including justice and freedom of movement.",
         "unit": null,
         "url": "https://ourworldindata.org/grapher/women-civil-liberties-index",
+        "dataHeader": "Women's civil rights index (central estimate)",
         "dates": [2024],
         "weight": 100,
         "values": [
             {"in": 0.00,   "out": 0.00},
             {"in": 0.75,   "out": 0.50},
             {"in": 1.00,   "out": 1.00}
-        ]
-    },
-    "_____.csv": {
-        "name": "",
-        "desc": "",
-        "unit": "",
-        "url": "",
-        "dates": [],
-        "weight": 100,
-        "values": [
-            {"in": 0,   "out": 0.00}
         ]
     }
 }
