@@ -51,7 +51,7 @@
         "url": "https://ourworldindata.org/grapher/democracy-index-eiu",
         "dataHeader": "Democracy index",
         "dates": [2024],
-        "weight": 100,
+        "weight": 150,
         "values": [
             {"in": 0,   "out": 0.00},
             {"in": 3,   "out": 0.00},
@@ -129,7 +129,7 @@
         "url": "https://ourworldindata.org/grapher/happiness-cantril-ladder",
         "dataHeader": "Cantril ladder score",
         "dates": [2014, 2024],
-        "weight": 100,
+        "weight": 150,
         "values": [
             {"in": 0,   "out": 0.00},
             {"in": 6.5, "out": 0.80},
@@ -172,7 +172,7 @@
         "url": "https://ourworldindata.org/grapher/share-of-adults-who-smoke",
         "dataHeader": "Share of adults who smoke or use tobacco (age-standardized)",
         "dates": [2022],
-        "weight": 100,
+        "weight": 50,
         "values": [
             {"in": 3,   "out": 1.00},
             {"in": 20,  "out": 0.50},
@@ -202,7 +202,7 @@
         "url": "https://ourworldindata.org/grapher/income-share-top-1-before-tax-wid",
         "dataHeader": "Top 1% - Share (Pretax) (Estimated)",
         "dates": [2023],
-        "weight": 100,
+        "weight": 50,
         "values": [
             {"in": 6,    "out": 1.00},
             {"in": 15,   "out": 0.50},
@@ -216,7 +216,7 @@
         "url": "https://ourworldindata.org/grapher/income-share-top-10-before-tax-wid",
         "dataHeader": "Richest decile - Share (Pretax) (Estimated)",
         "dates": [2023],
-        "weight": 100,
+        "weight": 70,
         "values": [
             {"in": 25,   "out": 1.00},
             {"in": 48,   "out": 0.50},
