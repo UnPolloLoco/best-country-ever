@@ -172,6 +172,37 @@ Water, Sanitation, & Hygiene (2019)
   File: waterSanitationHygiene.csv
   Data: Deaths per 100,000 from unsafe WaSH; 0.42 to 108.06
 
+---
+
+Corruption (2024)
+
+  V-Dem (2025) – processed by Our World in Data. “Political Corruption Index – V-Dem” [dataset]. V-Dem, “Democracy report v15” [original data].
+  Source: V-Dem (2025) – processed by Our World In Data
+
+  File: corruption.csv
+  Data: Scale from 0 to 1
+
+--- 
+
+Freedom (2024)
+
+  Freedom House (2025) – processed by Our World in Data. “Total democracy score” [dataset]. Freedom House, “Freedom in the World” [original data].
+  Source: Freedom House (2025) – processed by Our World In Data
+
+  File: freedom.csv
+  Data: Scale from 0 to 100
+
+---
+
+Undernourishment (2018-2022)
+
+  Food and Agriculture Organization of the United Nations (2025) – with major processing by Our World in Data. “Share of people who are undernourished – UN FAO” [dataset]. Food and Agriculture Organization of the United Nations, “SDG Indicators” [original data].
+  Source: Food and Agriculture Organization of the United Nations (2025) – with major processing by Our World In Data
+
+  File: undernourishment.csv
+  Data: Percentage; 0% to 51.3%
+
+
 ==============================================
 
 Metadata Template

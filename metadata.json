@@ -21,7 +21,7 @@
         "url": "https://ourworldindata.org/grapher/co-emissions-per-capita",
         "dataHeader": "Annual CO₂ emissions (per capita)",
         "dates": [2024],
-        "weight": 100,
+        "weight": 130,
         "values": [
             {"in": 0,   "out": 1.00},
             {"in": 5,   "out": 0.70},
@@ -36,7 +36,7 @@
         "url": "https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD",
         "dataHeader": "Debt-GDP Ratio",
         "dates": [2024, 2025],
-        "weight": 100,
+        "weight": 80,
         "values": [
             {"in": 0,   "out": 1.00},
             {"in": 60, "out": 0.60},
@@ -66,7 +66,7 @@
         "url": "https://ourworldindata.org/grapher/death-rates-from-drug-use-disorders-who",
         "dataHeader": "Death rate from drug use disorders among both sexes",
         "dates": [2021],
-        "weight": 100,
+        "weight": 80,
         "values": [
             {"in": 0,   "out": 1.00},
             {"in": 1,   "out": 0.75},
@@ -113,7 +113,7 @@
         "url": "https://ourworldindata.org/grapher/gdp-per-capita-worldbank",
         "dataHeader": "GDP per capita",
         "dates": [2022],
-        "weight": 100,
+        "weight": 120,
         "values": [
             {"in": 0,       "out": 0.00},
             {"in": 10000,   "out": 0.45},
@@ -157,7 +157,7 @@
         "url": "https://ourworldindata.org/grapher/cross-country-literacy-rates",
         "dataHeader": "Literacy rate",
         "dates": [2012, 2023],
-        "weight": 100,
+        "weight": 120,
         "values": [
             {"in": 30,    "out": 0.00},
             {"in": 60,    "out": 0.20},
@@ -172,7 +172,7 @@
         "url": "https://ourworldindata.org/grapher/share-of-adults-who-smoke",
         "dataHeader": "Share of adults who smoke or use tobacco (age-standardized)",
         "dates": [2022],
-        "weight": 50,
+        "weight": 80,
         "values": [
             {"in": 3,   "out": 1.00},
             {"in": 20,  "out": 0.50},
@@ -216,7 +216,7 @@
         "url": "https://ourworldindata.org/grapher/income-share-top-10-before-tax-wid",
         "dataHeader": "Richest decile - Share (Pretax) (Estimated)",
         "dates": [2023],
-        "weight": 70,
+        "weight": 80,
         "values": [
             {"in": 25,   "out": 1.00},
             {"in": 48,   "out": 0.50},
@@ -230,7 +230,7 @@
         "url": "https://ourworldindata.org/grapher/mortality-rate-attributable-to-wash",
         "dataHeader": "Mortality rate",
         "dates": [2019],
-        "weight": 100,
+        "weight": 150,
         "values": [
             {"in": 0,   "out": 1.00},
             {"in": 5,   "out": 0.90},
@@ -246,11 +246,55 @@
         "url": "https://ourworldindata.org/grapher/women-civil-liberties-index",
         "dataHeader": "Women's civil rights index (central estimate)",
         "dates": [2024],
-        "weight": 100,
+        "weight": 130,
         "values": [
             {"in": 0.00,   "out": 0.00},
             {"in": 0.75,   "out": 0.50},
             {"in": 1.00,   "out": 1.00}
+        ]
+    },
+    "corruption.csv": {
+        "name": "Corruption Index",
+        "desc": "A general measure of corruption throughout government, including lawmaking and bureaucracy.",
+        "unit": null,
+        "url": "https://ourworldindata.org/grapher/political-corruption-index",
+        "dataHeader": "Political corruption index (central estimate)",
+        "dates": [2024],
+        "weight": 100,
+        "values": [
+            {"in": 0.00,   "out": 1.00},
+            {"in": 0.50,   "out": 0.40},
+            {"in": 1.00,   "out": 0.00}
+        ]
+    },
+    "freedom.csv": {
+        "name": "Freedom Index",
+        "desc": "A general measure of freedom, including factors such as expression, political pluralism, and rule of law.",
+        "unit": null,
+        "url": "https://ourworldindata.org/grapher/freedom-score-fh",
+        "dataHeader": "Total democracy score",
+        "dates": [2024],
+        "weight": 200,
+        "values": [
+            {"in": 0,   "out": 0.00},
+            {"in": 75,  "out": 0.50},
+            {"in": 100, "out": 1.00}
+        ]
+    },
+    "undernourishment.csv": {
+        "name": "Undernourishment",
+        "desc": "Amount of people who cannot eat enough to keep up a normal, healthy lifestyle.",
+        "unit": "%",
+        "url": "https://ourworldindata.org/grapher/prevalence-of-undernourishment",
+        "dataHeader": "2.1.1 Prevalence of undernourishment | 000000000024000 || Value | 006121 || percent",
+        "dates": [2018, 2022],
+        "weight": 150,
+        "values": [
+            {"in": 0,    "out": 1.00},
+            {"in": 3,    "out": 0.95},
+            {"in": 6,    "out": 0.70},
+            {"in": 20,   "out": 0.10},
+            {"in": 50,   "out": 0.00}
         ]
     }
 }
