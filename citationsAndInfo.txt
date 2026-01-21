@@ -52,8 +52,9 @@ Life Expectancy (2023)
 
 ---
 
-Literacy (2012–2023)
+Literacy (2011–2023)
 
+  Some missing/outdated data has been filled in by yours truly.
   UNESCO (1957); UNESCO (1953); Buringh and van Zanden (2009); van Zanden, J. et al.; UNESCO Institute for Statistics (2025) – with major processing by Our World in Data. “Literacy rate” [dataset]. UNESCO, “World illiteracy at mid-century”; UNESCO, “Progress of literacy in various countries”; Buringh and van Zanden, “Charting the “Rise of the West”: Manuscripts and Printed Books in Europe, A Long-Term Perspective from the Sixth through Eighteenth Centuries”; van Zanden, J. et al., “How Was Life? Global Well-being since 1820 - Education 2014”; UNESCO Institute for Statistics, “UNESCO Institute for Statistics (UIS) - Education” [original data].
   Source: UNESCO (1957), UNESCO (1953), Buringh and van Zanden (2009), van Zanden, J. et al., UNESCO Institute for Statistics (2025) – with major processing by Our World In Data
 

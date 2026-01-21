@@ -6,7 +6,10 @@ sorted_data = sorted(data, key=(lambda x: float(x[-1])))
 sorted_data.reverse()
 
 for n, item in enumerate(sorted_data):
+    warn = ' '
+    if int(item[2]) < 15: warn = '!'
     print(
+        warn, 
         str(n).ljust(5), 
         item[1].ljust(50),
         item[-1][:5]

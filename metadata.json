@@ -156,7 +156,7 @@
         "unit": "%",
         "url": "https://ourworldindata.org/grapher/cross-country-literacy-rates",
         "dataHeader": "Literacy rate",
-        "dates": [2012, 2023],
+        "dates": [2011, 2023],
         "weight": 120,
         "values": [
             {"in": 30,    "out": 0.00},
