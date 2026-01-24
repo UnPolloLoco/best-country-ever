@@ -2,7 +2,8 @@ from extras import relPath, getJson, getCSV
 
 # Options
 
-show_map = True
+show_map = not True
+write_output = True
 
 # Read data
 
@@ -24,8 +25,10 @@ sorted_data.reverse()
 place = 0
 total = 0
 
+full_output = ''
+
 for n, item in enumerate(sorted_data):
-    warn = '\033[30m!'
+    warn = '!'
 
     data_percentage = round(int(item[2]) / file_count * 100)
     code = item[0]
@@ -37,28 +40,38 @@ for n, item in enumerate(sorted_data):
     value = item[-1][:5]
     total += float(value)
 
+    entry_output = ''
+
     if show_map:
         if n < 3 or n >= len(sorted_data) - 3 or code == 'USA':
             if code == 'USA': warn = '>'
-            print(
+            entry_output = ' '.join((
                 warn, 
                 str(place).ljust(5), 
                 item[1].ljust(45),
                 value,
                 f'{data_percentage}%'.ljust(7),
-                '\033[0m'
-            )
+            ))
     
     else:
-        print(
+        entry_output = ' '.join((
             warn, 
             str(place).ljust(5), 
             item[1].ljust(45),
             value,
             f'{data_percentage}%'.ljust(7),
             'X' * round(float(value)),
-            '\033[0m'
-        )
+        ))
+
+    full_output += entry_output + '\n'
+    
+print(full_output.replace('!', '\033[30m!').replace('\n', '\033[0m\n'))
+
+# Write data
+
+if write_output:
+    with open(relPath('../outputs/results.txt'), 'w') as f:
+        f.write(full_output)
 
 
 # More stats
@@ -140,3 +153,4 @@ if show_map:
                     line += '. '
         
         print(line)
+    
