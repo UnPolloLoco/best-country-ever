@@ -15,3 +15,6 @@ def getCSV(path):
         for i in reader:
             output.append(i)
         return output
+
+def interpolate(x, a1, a2, b1, b2):
+    return (b2 - b1) * (x - a1) / (a2 - a1) + b1

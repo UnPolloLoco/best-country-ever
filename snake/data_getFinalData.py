@@ -1,10 +1,5 @@
 from csv import writer
-from extras import relPath, getJson, getCSV
-
-# Linear interpolation function
-
-def interpolate(x, a1, a2, b1, b2):
-    return (b2 - b1) * (x - a1) / (a2 - a1) + b1
+from extras import relPath, getJson, getCSV, interpolate
 
 # Read necesary files
 

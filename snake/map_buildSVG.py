@@ -96,7 +96,7 @@ for line in svg:
         data_end = line.index('"', data_start+1)
         data = line[data_start+1 : data_end]
 
-        # Get country's values
+            # Get country's values
 
         score = 0
         instances = 0
@@ -104,7 +104,7 @@ for line in svg:
             score = code_to_score[code]
             instances = code_to_instances[code]
 
-        # Bonus class
+            # Bonus class
 
         bonus_class = ''
 
@@ -114,7 +114,7 @@ for line in svg:
         if instances == 0:
             bonus_class = ' no-data'
 
-        # Add the text
+            # Add the text
         new_text = f'<path class="country-path{bonus_class}" id="{code}" data-score="{score}" d="{data}"></path>'
 
     else:
