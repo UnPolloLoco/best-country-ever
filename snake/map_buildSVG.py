@@ -49,13 +49,11 @@ name_replacers = {
     'Palestinian Territories': 'Palestine',
 }
 
-# Prepare score-getter and instances-getter
+# Load big data
 
-final_csv = getCSV('../outputs/final.csv')
-code_to_score = {i[0]: i[3] for i in final_csv}
-code_to_instances = {i[0]: i[2] for i in final_csv}
+data_csv = getCSV('../outputs/finalDetailed.csv')
+data_dict = {i[0]: i for i in data_csv}
 
-max_instances = len(list(getJson('../metadata.json')))
 
 # Condense data
 
@@ -70,11 +68,17 @@ for line in svg:
         new_text = '<g>'
 
     elif line.startswith('<path id'):
-        # Country data
+        # Start of country data ----------------------------------------------------------------------------------------------------------
         name_start = line.index('"')
         name_end = line.index('"', name_start+1)
         name = line[name_start+1 : name_end]
         code = ''
+
+        path_start = line.index(' d=') + 3
+        path_end = line.index('"', path_start+1)
+        path = line[path_start+1 : path_end]
+
+        # Find code
 
         cleansed_name = name
         for x in character_replacers:
@@ -92,30 +96,41 @@ for line in svg:
             print(name, "doesn't have a code!!")
             code = name
 
-        data_start = line.index(' d=') + 3
-        data_end = line.index('"', data_start+1)
-        data = line[data_start+1 : data_end]
+        code_exists = (code != name)
 
-            # Get country's values
+        # Get country's values
 
-        score = 0
-        instances = 0
-        if code in code_to_score:
-            score = code_to_score[code]
-            instances = code_to_instances[code]
+        country_data = []
 
-            # Bonus class
+        if code_exists:
+            country_data = data_dict[code]
+            data_string = ','.join(country_data)
+        else:
+            # All empty, save for the entity name
+            data_string = ',' * 3
+            data_string += cleansed_name
+            data_string += ',' * (len(data_dict['USA']) - 1 - 3)
+
+        # Bonus class
 
         bonus_class = ''
+        data_accuracy = 0
 
-        if int(instances) / max_instances < 0.8:
+        print(country_data)
+        
+        if code_exists:
+            data_accuracy = float(country_data[5])
+
+        if data_accuracy < 80:
             bonus_class = ' low-data'
-
-        if instances == 0:
+        if data_accuracy == 0:
             bonus_class = ' no-data'
 
-            # Add the text
-        new_text = f'<path class="country-path{bonus_class}" id="{code}" data-score="{score}" d="{data}"></path>'
+        # Add the text
+
+        new_text = f'<path class="country-path{bonus_class}" id="{code}" data-stats="{data_string}" d="{path}"></path>'
+
+        # End of country data ----------------------------------------------------------------------------------------------------------
 
     else:
         # All other lines
