@@ -22,15 +22,18 @@ function interpolate(x, a1, a2, b1, b2) {
 // Coloring
 
 for (let n = 0; n < countries.length; n++) {
-    path = countries[n]
-    rawScore = parseFloat(path.getAttribute('data-score'))
-    
-    // Normalize score
-    score = interpolate(rawScore, minScore, maxScore, 0, 1)
+    setTimeout((score) => {
+        path = countries[n]
+        rawScore = parseFloat(path.getAttribute('data-score'))
+        
+        // Normalize score
+        score = interpolate(rawScore, minScore, maxScore, 0, 1)
 
-    path.style.fill = `hsl(
-        ${score*230}, 
-        70%, 
-        50%
-    )`
+        path.style.fill = `hsl(
+            ${score*230}, 
+            70%, 
+            50%
+        )`;
+
+    }, Math.random()*3000)
 }
