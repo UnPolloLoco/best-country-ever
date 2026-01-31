@@ -9,6 +9,10 @@ body {
     stroke-width: 0.2;
 }
 
+.country-path:hover {
+    fill: hsl(225, 25%, 22%);
+}
+
 #United_States { fill: yellow; }
 #United_States:hover { fill: lime; }
 
