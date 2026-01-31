@@ -18,3 +18,15 @@ body {
 
 #China { fill: hsl(10, 70%, 40%); }
 #India { fill: hsl(45, 70%, 40%); }
+
+
+.low-data { 
+    fill: rgb(255,150,0); 
+    stroke: rgba(255,150,0,0.1);
+    stroke-width: 18;
+}
+.no-data { 
+    fill: red; 
+    stroke: rgba(255,0,0,0.1);
+    stroke-width: 18;
+}
