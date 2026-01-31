@@ -50,7 +50,7 @@ for line in svg:
         data_end = line.index('"', data_start+1)
         data = line[data_start+1 : data_end]
 
-        new_text = f'<path id="{name}" d="{data}"></path>'
+        new_text = f'<path class="country-path" id="{name}" d="{data}"></path>'
 
     else:
         new_text = line + '\n'
@@ -61,7 +61,5 @@ for line in svg:
 
 # Write compressed SVG
 
-with open(relPath('../outputs/compressedMap.svg'), 'w') as f:
+with open(relPath('../outputs/betterMap.svg'), 'w') as f:
     f.write(new_svg_string)
-    # for line in new_svg:
-    #     f.write(line + '\n')
