@@ -6,12 +6,11 @@ body {
 .country-path { 
     fill: hsl(225, 25%, 18%); 
     stroke: hsl(225, 25%, 10%);
-    stroke-width: 0.2;
+    stroke-width: 0.1;
+    transition-duration: 1s;
 }
 
-.country-path:hover {
-    fill: hsl(225, 25%, 22%);
-}
+/* .country-path:hover {} */
 
 #United_States { fill: yellow; }
 #United_States:hover { fill: lime; }
