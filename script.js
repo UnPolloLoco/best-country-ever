@@ -1,5 +1,13 @@
 const countries = document.getElementsByClassName('country-path'); 
 
+// Extract country data
+
+for (let n = 0; n < countries.length; n++) {
+    let path = countries[n]
+    let rawData = path.getAttribute('data-stats')
+    let dataList = rawData.split(',')
+}
+
 // Finding min and max
 
 // scoreList = []
@@ -26,7 +34,7 @@ function interpolate(x, a1, a2, b1, b2) {
     return Math.min(Math.max(val, outMin), outMax);
 }
 
-// Coloring
+// Color variations
 
 const colorStops = [
     [
@@ -43,23 +51,25 @@ const colorStops = [
     ]
 ][1]
 
-for (let n = 0; n < countries.length; n++) {
-    setTimeout((score) => {
-        path = countries[n]
-        rawData = path.getAttribute('data-stats')
-        dataList = rawData.split(',')
+// Country loop
 
-        rawScore = parseFloat(dataList[6]);
+for (let n = 0; n < countries.length; n++) {
+    setTimeout(() => {
+        let path = countries[n]
+        let rawData = path.getAttribute('data-stats')
+        let dataList = rawData.split(',')
+
+        let rawScore = parseFloat(dataList[6]);
         
         // Normalize score
-        score = interpolate(rawScore, minScore, maxScore, 0, 1)
+        let score = interpolate(rawScore, minScore, maxScore, 0, 1)
 
         // Find color stop indexes
         let colorStartIndex;
         let colorEndIndex;
 
         for (let i = 0; i < colorStops.length; i++) {
-            percentage = colorStops[i][0];
+            let percentage = colorStops[i][0];
 
             if (score < percentage) {
                 colorStartIndex = i - 1;
@@ -87,9 +97,6 @@ for (let n = 0; n < countries.length; n++) {
             let thisStart = colorStart[i];
             let thisEnd = colorEnd[i];
 
-            // let outputMin = Math.min(thisStart, thisEnd);
-            // let outputMax = Math.max(thisStart, thisEnd);
-
             finalColorData.push(interpolate(
                 progressBetweenStops,
                 0, 1,
@@ -106,6 +113,20 @@ for (let n = 0; n < countries.length; n++) {
             ${finalColorData[2]}%
         )`;
 
+        path.onmouseover = (() => {
+            document.getElementById('country-name').innerText = dataList[3];
+            document.getElementById('z-index-override').setAttribute("href", `#${dataList[0]}`);
+        })
+
     }, 1000*Math.random())
 }
+
+
+// Tooltip
+
+let tooltip = document.getElementById('country-name');
+document.body.onmousemove = ((e) => {
+    tooltip.style.top = `${e.clientY}px`;
+    tooltip.style.left = `${e.clientX}px`;
+})
 

@@ -1,22 +1,41 @@
+:root {
+    --dark: hsl(225, 25%, 10%);
+    --shadow: hsla(225, 25%, 10%, 0.4);
+    --less-dark: hsl(225, 25%, 18%);
+}
+
 body {
-    background-color: hsl(225, 25%, 10%);
+    background-color: var(--dark);
     color: white;
 }
 
 .country-path { 
-    fill: hsl(225, 25%, 18%); 
-    stroke: hsl(225, 25%, 10%);
-    stroke-width: 0.1;
-    transition-duration: 1s;
+    fill: var(--less-dark); 
+    stroke: var(--dark);
+    stroke-width: 0.4;
 }
 
-/* .country-path:hover {} */
+#map-container {
+    /* background-color: black; */
+}
 
-#United_States { fill: yellow; }
-#United_States:hover { fill: lime; }
+.country-path:hover {
+    /* stroke: white; */
+    /* animation-duration: 0.5s; */
+    /* animation-name: stroke-flash; */
+    /* animation-iteration-count: infinite; */
+    filter: drop-shadow(0 0 4px var(--shadow));
+}
 
-#China { fill: hsl(10, 70%, 40%); }
-#India { fill: hsl(45, 70%, 40%); }
+@keyframes stroke-flash {
+    from { stroke: white; }
+    to { stroke: var(--dark); }
+}
+  
+
+#AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
+    opacity: 0.5;
+}
 
 /*
 .low-data { 

@@ -67,6 +67,10 @@ for line in svg:
         # Country group opening tag
         new_text = '<g>'
 
+    elif line.startswith('</svg>'):
+        # Last line
+        new_text = '<use id="z-index-override" href="#USA"/>' + '\n' + line + '\n'
+
     elif line.startswith('<path id'):
         # Start of country data ----------------------------------------------------------------------------------------------------------
         name_start = line.index('"')
