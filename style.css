@@ -12,29 +12,18 @@ body {
 .country-path { 
     fill: var(--less-dark); 
     stroke: var(--dark);
-    stroke-width: 0.4;
-}
-
-#map-container {
-    /* background-color: black; */
+    stroke-width: 0.15;
 }
 
 .country-path:hover {
-    /* stroke: white; */
-    /* animation-duration: 0.5s; */
-    /* animation-name: stroke-flash; */
-    /* animation-iteration-count: infinite; */
-    filter: drop-shadow(0 0 4px var(--shadow));
+    stroke: white;
+    stroke-width: 1;
+    /* filter: drop-shadow(0 0 4px var(--shadow)); */
 }
-
-@keyframes stroke-flash {
-    from { stroke: white; }
-    to { stroke: var(--dark); }
-}
-  
 
 #AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
-    opacity: 0.5;
+    stroke: yellow;
+    stroke-width: 1;
 }
 
 /*

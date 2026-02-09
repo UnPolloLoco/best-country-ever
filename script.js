@@ -54,11 +54,12 @@ const colorStops = [
 // Country loop
 
 for (let n = 0; n < countries.length; n++) {
-    setTimeout(() => {
-        let path = countries[n]
-        let rawData = path.getAttribute('data-stats')
-        let dataList = rawData.split(',')
+    console.log(n)
+    let path = countries[n]
+    let rawData = path.getAttribute('data-stats')
+    let dataList = rawData.split(',')
 
+    if (!path.classList.contains('no-data')) {
         let rawScore = parseFloat(dataList[6]);
         
         // Normalize score
@@ -113,12 +114,15 @@ for (let n = 0; n < countries.length; n++) {
             ${finalColorData[2]}%
         )`;
 
-        path.onmouseover = (() => {
-            document.getElementById('country-name').innerText = dataList[3];
-            document.getElementById('z-index-override').setAttribute("href", `#${dataList[0]}`);
-        })
+    }
 
-    }, 1000*Math.random())
+    // End of check for no-data class
+
+    path.onmouseover = (() => {
+        document.getElementById('country-name').innerText = dataList[3];
+        document.getElementById('z-index-override').setAttribute("href", `#${dataList[0]}`);
+    })
+
 }
 
 
