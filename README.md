@@ -1,213 +1,225 @@
-==============================================
-|             CITATIONS & INFO               |
-==============================================
+# Unnamed Country-Ranking Thing
 
-Democracy Index (2024)
+This repo contains datasets and mapping for the purpose of finding the best and worst countries in the world... for entertainment purposes!! :D
+
+## Mapping Citation
+
+### MapChart Simple World Map (2026)
+
+  The original SVG data for the world map used here is from MapChart.net: https://www.mapchart.net/world.html. The data is shared under [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). MapChart's SVG has been modified, but the original country shapes are almost completely unchanged.
+
+  File `worldMap.svg`
+
+
+## Data Citations
+
+### Democracy Index (2024)
 
   Economist Intelligence Unit (2006-2024) – processed by Our World in Data. “Democracy index – Economist Intelligence Unit” [dataset]. Economist Intelligence Unit, “Democracy Index 2021: The China challenge”; Economist Intelligence Unit, “Democracy Index 2022: Frontline democracy and the battle for Ukraine”; Economist Intelligence Unit, “Democracy Index 2023: Age of Conflict”; Economist Intelligence Unit, “Democracy Index 2024: What's wrong with representative democracy?”; Gapminder, “Democracy Index v4”; Various sources, “Population” [original data].
+  
   Source: Economist Intelligence Unit (2006-2024) – processed by Our World In Data
 
-  File: democracyIndex.csv 
+  File: `democracyIndex.csv`   
   Data: Scale from 0 to 10
 
 ---
 
-CO2 Per Capita (2024)
+### CO2 Per Capita (2024)
 
   Global Carbon Budget (2025); Population based on various sources (2024) – with major processing by Our World in Data. “CO₂ emissions per capita” [dataset]. Global Carbon Project, “Global Carbon Budget v15”; Various sources, “Population” [original data].
   Source: Global Carbon Budget (2025), Population based on various sources (2024) – with major processing by Our World In Data
 
-  File: co2PerCapita.csv
+  File: `co2PerCapita.csv`  
   Data: 0 to 41.27 tonnes
 
 ---
 
-GDP Per Capita (2022)
+### GDP Per Capita (2022)
 
   Bolt and van Zanden – Maddison Project Database 2023 – with minor processing by Our World in Data. “GDP per capita – Maddison Project Database – Long-run data in constant international-$” [dataset]. Bolt and van Zanden, “Maddison Project Database 2023” [original data].
   Source: Bolt and van Zanden – Maddison Project Database 2023 – with minor processing by Our World In Data
 
-  File: gdpPerCapita.csv
+  File: `gdpPerCapita.csv`  
   Data: 2021 International dollars; $0 to $132.57k
 
 ---
 
-Happiness; Self-Reported Life Satisfaction (2014-2024)
+### Happiness; Self-Reported Life Satisfaction (2014-2024)
 
   Wellbeing Research Centre (2025) – with major processing by Our World in Data. “Self-reported life satisfaction” [dataset]. Wellbeing Research Centre, “World Happiness Report 2025” [original data].
   Source: Wellbeing Research Centre (2025) – with major processing by Our World In Data
 
-  File: happiness.csv
+  File: `happiness.csv`  
   Data: Average; Scale from 0 to 10
 
 ---
 
-Life Expectancy (2023)
+### Life Expectancy (2023)
 
   Human Mortality Database (2025); UN, World Population Prospects (2024) – processed by Our World in Data. “Life expectancy at birth – HMD – totals, period tables” [dataset]. Human Mortality Database, “Human Mortality Database”; United Nations, “World Population Prospects” [original data].
   Source: Human Mortality Database (2025), UN, World Population Prospects (2024) – processed by Our World In Data
 
-  File: lifeExpectancy.csv
+  File: `lifeExpectancy.csv`  
   Data: Period life expectancy at birth; 54.5 to 86.4 years
 
 ---
 
-Literacy (2011–2023)
+### Literacy (2011–2023)
 
   Some missing/outdated data has been filled in by yours truly.
   UNESCO (1957); UNESCO (1953); Buringh and van Zanden (2009); van Zanden, J. et al.; UNESCO Institute for Statistics (2025) – with major processing by Our World in Data. “Literacy rate” [dataset]. UNESCO, “World illiteracy at mid-century”; UNESCO, “Progress of literacy in various countries”; Buringh and van Zanden, “Charting the “Rise of the West”: Manuscripts and Printed Books in Europe, A Long-Term Perspective from the Sixth through Eighteenth Centuries”; van Zanden, J. et al., “How Was Life? Global Well-being since 1820 - Education 2014”; UNESCO Institute for Statistics, “UNESCO Institute for Statistics (UIS) - Education” [original data].
   Source: UNESCO (1957), UNESCO (1953), Buringh and van Zanden (2009), van Zanden, J. et al., UNESCO Institute for Statistics (2025) – with major processing by Our World In Data
 
-  File: literacy.csv
+  File: `literacy.csv`  
   Data: Percentage; 31% to 100%
 
 ---
 
-Natl. Debt to GDP Ratio (2024-2025)
+### Natl. Debt to GDP Ratio (2024-2025)
 
   Data has been modified by yours truly.
   Source: International Monetary Fund, General government gross debt (Percent of GDP), https://www.imf.org/external/datamapper/GGXWDG_NGDP@WEO/OEMDC/ADVEC/WEOWORLD.
 
-  File: debtToGdp.csv
+  File: `debtToGdp.csv`  
   Data: Percentage; 0% to 226.8%
 
 ---
 
-Fertility (2023)
+### Fertility (2023)
 
   Header name(s) modified by yours truly.
   Human Fertility Database (2025); UN, World Population Prospects (2024) – with major processing by Our World in Data. “Fertility rate: births per woman – HFD, UN WPP – period tables” [dataset]. Human Fertility Database, “Human Fertility Database”; United Nations, “World Population Prospects” [original data].
   Source: Human Fertility Database (2025), UN, World Population Prospects (2024) – with major processing by Our World In Data
 
-  File: fertility.csv
+  File: `fertility.csv`  
   Data: Births per woman; 0.7 to 6.1
 
 ---
 
-Territory Control (2024)
+### Territory Control (2024)
 
   V-Dem (2025) – processed by Our World in Data. “Territory under state control – V-Dem” [dataset]. V-Dem, “Democracy report v15” [original data].
   Source: V-Dem (2025) – processed by Our World In Data
 
-  File: territoryControl.csv
+  File: `territoryControl.csv`  
   Data: Percentage; 43.5% to 100%
 
 ---
 
-Drug Use (2021)
+### Drug Use (2021)
 
   World Health Organization (2024) – with major processing by Our World in Data. “Death rate from drug use disorders among both sexes” [dataset]. World Health Organization, “Global Health Estimates” [original data].
   Source: World Health Organization (2024) – with major processing by Our World In Data
 
-  File: drugUse.csv
+  File: `drugUse.csv`  
   Data: Deaths per 100,000; 0 to 31.75
 
 --- 
 
-Women's Civil Rights (2024)
+### Women's Civil Rights (2024)
 
   V-Dem (2025) – processed by Our World in Data. “Women's civil rights index – V-Dem” [dataset]. V-Dem, “Democracy report v15” [original data].
   Source: V-Dem (2025) – processed by Our World In Data
 
-  File: womensCivilRights.csv
+  File: `womensCivilRights.csv`  
   Data: Scale from 0 to 1
 
 ---
 
-Top 1% Share of Income (2023)
+### Top 1% Share of Income (2023)
 
   World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Top 1% - Share (Pretax) (Estimated) – World Inequality Database – Before tax” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].
   Source: World Inequality Database (WID.world) (2025) – with major processing by Our World In Data
 
-  File: topOneIncome.csv
+  File: `topOneIncome.csv`  
   Data: Before-tax Percentage; 6.7% to 26.9%
 
 ---
 
-Top 10% Share of Income (2023)
+### Top 10% Share of Income (2023)
 
   World Inequality Database (WID.world) (2025) – with major processing by Our World in Data. “Richest decile - Share (Pretax) (Estimated) – World Inequality Database – Before tax” [dataset]. World Inequality Database (WID.world), “World Inequality Database (WID)” [original data].
   Source: World Inequality Database (WID.world) (2025) – with major processing by Our World In Data
 
-  File: topTenIncome.csv
+  File: `topTenIncome.csv`  
   Data: Before-tax Percentage; 27.6% to 65.1%
 
 ---
 
-Years of Education (2023)
+### Years of Education (2023)
 
   UNDP, Human Development Report (2025) – with minor processing by Our World in Data. “Average years of schooling – UNDP” [dataset]. UNDP, Human Development Report, “Human Development Report” [original data].
   Source: UNDP, Human Development Report (2025) – with minor processing by Our World In Data
 
-  File: education.csv
+  File: `education.csv`  
   Data: Average; 1.4 to 14.3 years
 
 ---
 
-Smoking (2022)
+### Smoking (2022)
 
   World Health Organization - Global Health Observatory (2024) – processed by Our World in Data. “Share of adults who smoke or use tobacco (age-standardized)” [dataset]. World Health Organization, “Global Health Observatory” [original data].
   Source: World Health Organization - Global Health Observatory (2024) – processed by Our World In Data
 
-  File: smoking.csv
+  File: `smoking.csv`  
   Data: 15+ year olds; Percentage; 3.3% to 48.3%
 
 ---
 
-PM2.5 Exposure (2019)
+### PM2.5 Exposure (2019)
 
   World Health Organization - Global Health Observatory (2025) – processed by Our World in Data. “Concentrations of fine particulate matter (PM2.5) - Residence area type: Total” [dataset]. World Health Organization, “Global Health Observatory” [original data].
   Source: World Health Organization - Global Health Observatory (2025) – processed by Our World In Data
 
-  File: airPollution.csv
+  File: `airPollution.csv`  
   Data: Pop. weighted concentration; 5.2 to 64.08 µg/m^3
 
 ---
 
-Water, Sanitation, & Hygiene (2019)
+### Water, Sanitation, & Hygiene (2019)
 
   Header name(s) modified by yours truly.
   World Health Organization – processed by Our World in Data. “Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene from diarrhoea, intestinal nematode infections, malnutrition and acute respiratory infections (deaths per 100,000 population)” [dataset]. World Health Organization, “Global Health Observatory (GHO), World Health Organisation (WHO)” [original data].
   Source: World Health Organization – processed by Our World In Data
 
-  File: waterSanitationHygiene.csv
+  File: `waterSanitationHygiene.csv`  
   Data: Deaths per 100,000 from unsafe WaSH; 0.42 to 108.06
 
 ---
 
-Corruption (2024)
+### Corruption (2024)
 
   V-Dem (2025) – processed by Our World in Data. “Political Corruption Index – V-Dem” [dataset]. V-Dem, “Democracy report v15” [original data].
   Source: V-Dem (2025) – processed by Our World In Data
 
-  File: corruption.csv
+  File: `corruption.csv`  
   Data: Scale from 0 to 1
 
 --- 
 
-Freedom (2024)
+### Freedom (2024)
 
   Freedom House (2025) – processed by Our World in Data. “Total democracy score” [dataset]. Freedom House, “Freedom in the World” [original data].
   Source: Freedom House (2025) – processed by Our World In Data
 
-  File: freedom.csv
+  File: `freedom.csv`  
   Data: Scale from 0 to 100
 
 ---
 
-Undernourishment (2018-2022)
+### Undernourishment (2018-2022)
 
   Food and Agriculture Organization of the United Nations (2025) – with major processing by Our World in Data. “Share of people who are undernourished – UN FAO” [dataset]. Food and Agriculture Organization of the United Nations, “SDG Indicators” [original data].
   Source: Food and Agriculture Organization of the United Nations (2025) – with major processing by Our World In Data
 
-  File: undernourishment.csv
+  File: `undernourishment.csv`  
   Data: Percentage; 0% to 51.3%
 
+## Miscellaneous
 
-==============================================
+Metadata entry template:
 
-Metadata Template
-
+```json
 "_____.csv": {
     "name": "",
     "desc": "",
@@ -217,6 +229,15 @@ Metadata Template
     "dates": [],
     "weight": 100,
     "values": [
-        {"in": 0,   "out": 0.00}
+        {"in": 0, "out": 0.00}
     ]
 }
+```
+
+## To-do
+
+- Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
+- Visual indication of low data
+- Better visual indication of no data
+- Consistent visuals for microstates (and other small things)
+- Everything else!!
