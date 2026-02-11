@@ -2,27 +2,56 @@ const countries = document.getElementsByClassName('country-path');
 
 // Extract country data
 
+const dataHeaders = [
+    'Code','Rank','True Rank','Entity','Instances','Accuracy','Value',
+    'airPollution','co2PerCapita','debtToGdp','democracyIndex','drugUse',
+    'education','fertility','gdpPerCapita','happiness','lifeExpectancy',
+    'literacy','smoking','territoryControl','topOneIncome','topTenIncome',
+    'waterSanitationHygiene','womensCivilRights','corruption','freedom','undernourishment'
+];
+const stringHeaders = ['Code', 'Entity'];
+
+let allCountryData = {}
+let scoreList = []
+
 for (let n = 0; n < countries.length; n++) {
-    let path = countries[n]
-    let rawData = path.getAttribute('data-stats')
+    let pathElement = countries[n]
+    let rawData = pathElement.getAttribute('data-stats')
     let dataList = rawData.split(',')
+
+    let countryData = {}
+
+    for (let d = 0; d < dataHeaders.length; d++) {
+        let thisHeader = dataHeaders[d];
+        let dataPoint = dataList[d];
+
+        if (dataPoint == '') {
+            // Data point DNE
+            dataPoint = null;
+        } else if (!stringHeaders.includes(thisHeader)) {
+            // Data point is numerical
+            dataPoint = Number(dataPoint)
+        }
+
+        if (thisHeader == 'Value') scoreList.push(dataPoint);
+
+        countryData[thisHeader] = dataPoint;
+    }
+
+    allCountryData[pathElement.id] = countryData;
 }
+
+console.log(allCountryData)
+
 
 // Finding min and max
 
-// scoreList = []
+let cleansedScoreList = scoreList.filter(a => a != null)
 
-// for (let n = 0; n < countries.length; n++) {
-//     path = countries[n]
-//     score = parseFloat(path.getAttribute('data-score'))
-//     if (score > 0) { scoreList.push(score) }
-// }
+const maxScore = Math.max(...cleansedScoreList);
+const minScore = Math.min(...cleansedScoreList);
 
-// const maxScore = Math.max(...scoreList);
-// const minScore = Math.min(...scoreList);
-
-const maxScore = 88;
-const minScore = 26;
+console.log(minScore, maxScore)
 
 // Interpolation function
 
@@ -54,13 +83,11 @@ const colorStops = [
 // Country loop
 
 for (let n = 0; n < countries.length; n++) {
-    console.log(n)
-    let path = countries[n]
-    let rawData = path.getAttribute('data-stats')
-    let dataList = rawData.split(',')
+    let pathElement = countries[n];
+    let countryData = allCountryData[pathElement.id];
 
-    if (!path.classList.contains('no-data')) {
-        let rawScore = parseFloat(dataList[6]);
+    if (!pathElement.classList.contains('no-data')) {
+        let rawScore = countryData['Value'];
         
         // Normalize score
         let score = interpolate(rawScore, minScore, maxScore, 0, 1)
@@ -72,7 +99,7 @@ for (let n = 0; n < countries.length; n++) {
         for (let i = 0; i < colorStops.length; i++) {
             let percentage = colorStops[i][0];
 
-            if (score < percentage) {
+            if (score < percentage || i == colorStops.length - 1) {
                 colorStartIndex = i - 1;
                 colorEndIndex = i;
                 break;
@@ -108,7 +135,7 @@ for (let n = 0; n < countries.length; n++) {
         
         // Fill color
         
-        path.style.fill = `hsl(
+        pathElement.style.fill = `hsl(
             ${finalColorData[0]}, 
             ${finalColorData[1]}%, 
             ${finalColorData[2]}%
@@ -118,9 +145,9 @@ for (let n = 0; n < countries.length; n++) {
 
     // End of check for no-data class
 
-    path.onmouseover = (() => {
-        document.getElementById('country-name').innerText = dataList[3];
-        document.getElementById('z-index-override').setAttribute("href", `#${dataList[0]}`);
+    pathElement.onmouseover = (() => {
+        document.getElementById('country-name').innerText = countryData['Entity'];
+        document.getElementById('z-index-override').setAttribute("href", `#${countryData['Code']}`);
     })
 
 }
