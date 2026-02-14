@@ -145,19 +145,51 @@ for (let n = 0; n < countries.length; n++) {
 
     // End of check for no-data class
 
-    pathElement.onmouseover = (() => {
-        document.getElementById('country-name').innerText = countryData['Entity'];
-        document.getElementById('z-index-override').setAttribute("href", `#${countryData['Code']}`);
+    pathElement.addEventListener('mouseover', (e) => {
+        // document.getElementById('z-index-override').setAttribute("href", `#${countryData['Code']}`);3
     })
 
+    pathElement.addEventListener('mouseenter', (e) => {
+        currentlyHoveringOverCode = countryData['Code'];
+        updateTooltip();
+    })
+    pathElement.addEventListener('mouseout', (e) => {
+        currentlyHoveringOverCode = '';
+
+        if (countryData['Code'] == currentlyHoveringOverCode) {
+            currentlyHoveringOverCode = '';
+        }
+        updateTooltip()
+    })
 }
 
 
-// Tooltip
 
-let tooltip = document.getElementById('country-name');
-document.body.onmousemove = ((e) => {
-    tooltip.style.top = `${e.clientY}px`;
-    tooltip.style.left = `${e.clientX}px`;
+// Tooltip movement
+
+let currentlyHoveringOverCode = '';
+
+const tooltip = document.getElementById('tooltip');
+const tooltipText = document.getElementById('tooltip-text');
+const mapContainer = document.getElementById('map-container');
+
+mapContainer.addEventListener('mousemove', (e) => {
+    tooltip.style.top = `${e.clientY - 10}px`;
+    tooltip.style.left = `${e.clientX + 20}px`;
 })
 
+// Tooltip naming
+
+function updateTooltip() {
+    let hoverCodeExists = (currentlyHoveringOverCode != '');
+
+    tooltip.style.display = hoverCodeExists ? 'block' : 'none';
+
+    if (currentlyHoveringOverCode != '') {
+        let countryData = allCountryData[currentlyHoveringOverCode];
+
+        tooltipText.innerHTML = `${countryData['Entity']} <span id="country-value">${Math.round(countryData['Value'] * 10)/10}</span>`;
+        document.getElementById('value-progress').style.backgroundColor = document.getElementById(countryData['Code']).style.fill;
+        document.getElementById('value-progress').style.width = `${countryData['Value']}%`;
+    }
+}

@@ -236,6 +236,7 @@ Metadata entry template:
 
 ## To-do
 
+- Re-fix hover z-order
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
 - Visual indication of low data
 - Better visual indication of no data
