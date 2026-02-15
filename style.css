@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap');
 
 :root {
     --dark: hsl(225, 25%, 10%);
@@ -13,6 +14,8 @@ body {
     font-family: "Nunito Sans", sans-serif;
 }
 
+/* ----------------------------- Countries ----------------------------- */
+
 .country-path { 
     fill: var(--less-dark); 
     stroke: var(--dark);
@@ -23,6 +26,8 @@ body {
     stroke: white;
     stroke-width: 1px;
 }
+
+/* ----------------------------- Tooltip ----------------------------- */
 
 #tooltip {
     pointer-events: none;
@@ -35,48 +40,41 @@ body {
     border: 1px solid white;
     border-radius: 10px;
     width: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#tooltip-text {
-    font-size: 12px;
+#tooltip-grid {
+    display: grid;
+    grid-template: 50px / 1fr 90px;
+    align-items: center;
+    gap: 20px;
+    width: calc(100% - 40px);
+    margin: auto;
+}
+
+#tooltip, #tooltip-grid, #tooltip-text, #tooltip-score { 
     margin: 0;
-    padding: 8px 25px;
-    padding-bottom: 0;
-    /* text-shadow: 0 2px 0 var(--dark); */
-}
-
-#tooltip-text span { /* Country's score display */
-    font-weight: bold;
-    float: right;
-}
-
-#value-meter, #value-progress { 
-    height: 6px; 
-    line-height: 0;
     padding: 0;
 }
 
-#value-meter {
-    position: relative;
-    background-color: white;
-    background-color: rgba(255,255,255, 0.2);
-    width: calc(100% - 50px);
-    margin: 1px 25px 10px 25px;
-    border-radius: 2px;
+/* Tooltip content */
+
+#tooltip-text { 
+    font-size: 12px;
+    line-height: 1.18;
 }
 
-#value-progress {
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    left: 0;
-    margin: 0;
-    width: 25%;
-    background-color: rgb(213, 228, 228);
-    background-color: rgb(35, 57, 147);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255, 0.5);
-    border-radius: 2px;
+#tooltip-score {
+    font-weight: bold;
+    font-family: "Alfa Slab One";
+    font-size: 32px;
+    text-align: right;
 }
+
+/* ----------------------------- Misc ----------------------------- */
 
 #AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
     stroke: yellow;

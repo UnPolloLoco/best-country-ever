@@ -80,60 +80,66 @@ const colorStops = [
     ]
 ][1]
 
+// Color-from-value function
+
+function getColor(x) {
+    // Normalize
+    let score = interpolate(x, minScore, maxScore, 0, 1)
+
+    // Find color stop indexes
+    let colorStartIndex;
+    let colorEndIndex;
+
+    for (let i = 0; i < colorStops.length; i++) {
+        let percentage = colorStops[i][0];
+
+        if (score < percentage || i == colorStops.length - 1) {
+            colorStartIndex = i - 1;
+            colorEndIndex = i;
+            break;
+        }
+    }
+
+    // Find dist between stops
+
+    let progressBetweenStops = interpolate(
+        score, 
+        colorStops[colorStartIndex][0], colorStops[colorEndIndex][0], 
+        0, 1
+    );
+
+    // Interpolate colors
+
+    let colorStart = colorStops[colorStartIndex][1];
+    let colorEnd = colorStops[colorEndIndex][1];
+
+    let finalColorData = []
+    for (let i = 0; i < 3; i++) {
+        // Loop through H, S, L
+        let thisStart = colorStart[i];
+        let thisEnd = colorEnd[i];
+
+        finalColorData.push(interpolate(
+            progressBetweenStops,
+            0, 1,
+            thisStart, thisEnd,
+        ))
+    }
+
+    return finalColorData;
+}
+
 // Country loop
 
 for (let n = 0; n < countries.length; n++) {
     let pathElement = countries[n];
     let countryData = allCountryData[pathElement.id];
 
+    // Fill color
+
     if (!pathElement.classList.contains('no-data')) {
-        let rawScore = countryData['Value'];
-        
-        // Normalize score
-        let score = interpolate(rawScore, minScore, maxScore, 0, 1)
-
-        // Find color stop indexes
-        let colorStartIndex;
-        let colorEndIndex;
-
-        for (let i = 0; i < colorStops.length; i++) {
-            let percentage = colorStops[i][0];
-
-            if (score < percentage || i == colorStops.length - 1) {
-                colorStartIndex = i - 1;
-                colorEndIndex = i;
-                break;
-            }
-        }
-
-        // Find dist between stops
-
-        let progressBetweenStops = interpolate(
-            score, 
-            colorStops[colorStartIndex][0], colorStops[colorEndIndex][0], 
-            0, 1
-        );
-
-        // Interpolate colors
-
-        let colorStart = colorStops[colorStartIndex][1];
-        let colorEnd = colorStops[colorEndIndex][1];
-
-        let finalColorData = []
-        for (let i = 0; i < 3; i++) {
-            // Loop through H, S, L
-            let thisStart = colorStart[i];
-            let thisEnd = colorEnd[i];
-
-            finalColorData.push(interpolate(
-                progressBetweenStops,
-                0, 1,
-                thisStart, thisEnd,
-            ))
-        }
-
-        
-        // Fill color
+        let score = countryData['Value'];
+        let finalColorData = getColor(score);
         
         pathElement.style.fill = `hsl(
             ${finalColorData[0]}, 
@@ -171,25 +177,38 @@ let currentlyHoveringOverCode = '';
 
 const tooltip = document.getElementById('tooltip');
 const tooltipText = document.getElementById('tooltip-text');
+const tooltipProgress = document.getElementById('value-progress');
 const mapContainer = document.getElementById('map-container');
 
 mapContainer.addEventListener('mousemove', (e) => {
-    tooltip.style.top = `${e.clientY - 10}px`;
-    tooltip.style.left = `${e.clientX + 20}px`;
+    tooltip.style.top = `${e.clientY}px`;
+    tooltip.style.left = `${e.clientX + 15}px`;
 })
 
-// Tooltip naming
+// Tooltip updates
 
 function updateTooltip() {
     let hoverCodeExists = (currentlyHoveringOverCode != '');
 
-    tooltip.style.display = hoverCodeExists ? 'block' : 'none';
+    tooltip.style.display = hoverCodeExists ? 'flex' : 'none';
 
     if (currentlyHoveringOverCode != '') {
         let countryData = allCountryData[currentlyHoveringOverCode];
 
-        tooltipText.innerHTML = `${countryData['Entity']} <span id="country-value">${Math.round(countryData['Value'] * 10)/10}</span>`;
-        document.getElementById('value-progress').style.backgroundColor = document.getElementById(countryData['Code']).style.fill;
-        document.getElementById('value-progress').style.width = `${countryData['Value']}%`;
+        // Text
+        tooltipText.innerHTML = countryData['Entity'];
+
+        let tooltipScore = document.getElementById('tooltip-score');
+        tooltipScore.innerText = (countryData['Value']).toFixed(1);
+
+        // Coloring
+
+        let finalColorData = getColor(countryData['Value'])
+
+        tooltipScore.style.color = `hsl(
+            ${finalColorData[0]}, 
+            ${100}%, 
+            ${Math.max(70, finalColorData[2])}%
+        )`;
     }
 }
