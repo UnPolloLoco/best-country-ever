@@ -180,9 +180,13 @@ const tooltipText = document.getElementById('tooltip-text');
 const tooltipProgress = document.getElementById('value-progress');
 const mapContainer = document.getElementById('map-container');
 
+let hasMovedMouse = false;
+
 mapContainer.addEventListener('mousemove', (e) => {
     tooltip.style.top = `${e.clientY}px`;
     tooltip.style.left = `${e.clientX + 15}px`;
+
+    hasMovedMouse = true;
 })
 
 // Tooltip updates
@@ -190,7 +194,7 @@ mapContainer.addEventListener('mousemove', (e) => {
 function updateTooltip() {
     let hoverCodeExists = (currentlyHoveringOverCode != '');
 
-    tooltip.style.display = hoverCodeExists ? 'flex' : 'none';
+    tooltip.style.display = (hoverCodeExists && hasMovedMouse) ? 'flex' : 'none';
 
     if (currentlyHoveringOverCode != '') {
         let countryData = allCountryData[currentlyHoveringOverCode];
@@ -207,8 +211,8 @@ function updateTooltip() {
 
         tooltipScore.style.color = `hsl(
             ${finalColorData[0]}, 
-            ${100}%, 
-            ${Math.max(70, finalColorData[2])}%
+            100%, 
+            ${Math.max(65, finalColorData[2])}%
         )`;
     }
 }

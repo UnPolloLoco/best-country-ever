@@ -35,13 +35,14 @@ body {
     top: 0;
     left: 0;
     background-color: var(--dark);
-    background-color: hsla(225, 25%, 10%, 0.8);
+    background-color: hsla(225, 25%, 10%, 0.85);
     color: white;
     border: 1px solid white;
     border-radius: 10px;
     width: 250px;
 
-    display: flex;
+    /* display: flex */
+    display: none;
     align-items: center;
     justify-content: center;
 }

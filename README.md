@@ -241,4 +241,5 @@ Metadata entry template:
 - Visual indication of low data
 - Better visual indication of no data
 - Consistent visuals for microstates (and other small things)
+- Get a more detailed Australia
 - Everything else!!
