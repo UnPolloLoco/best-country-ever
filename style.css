@@ -35,7 +35,7 @@ body {
     top: 0;
     left: 0;
     background-color: var(--dark);
-    background-color: hsla(225, 25%, 10%, 0.85);
+    background-color: hsla(225, 25%, 10%, 0.88);
     color: white;
     border: 1px solid white;
     border-radius: 10px;
@@ -73,6 +73,7 @@ body {
     font-family: "Alfa Slab One";
     font-size: 32px;
     text-align: right;
+    /* text-shadow: 0 3px 0 transparent; */
 }
 
 /* ----------------------------- Misc ----------------------------- */

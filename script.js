@@ -63,6 +63,12 @@ function interpolate(x, a1, a2, b1, b2) {
     return Math.min(Math.max(val, outMin), outMax);
 }
 
+// Score normalizer
+
+function normalizeScore(x) {
+    return interpolate(x, minScore, maxScore, 0, 1);
+}
+
 // Color variations
 
 const colorStops = [
@@ -84,7 +90,7 @@ const colorStops = [
 
 function getColor(x) {
     // Normalize
-    let score = interpolate(x, minScore, maxScore, 0, 1)
+    let score = normalizeScore(x);
 
     // Find color stop indexes
     let colorStartIndex;
@@ -198,6 +204,8 @@ function updateTooltip() {
 
     if (currentlyHoveringOverCode != '') {
         let countryData = allCountryData[currentlyHoveringOverCode];
+        let normScore = normalizeScore(countryData['Value']);
+        let inverseNormScore = 1 - normScore;
 
         // Text
         tooltipText.innerHTML = countryData['Entity'];
@@ -205,14 +213,26 @@ function updateTooltip() {
         let tooltipScore = document.getElementById('tooltip-score');
         tooltipScore.innerText = (countryData['Value']).toFixed(1);
 
-        // Coloring
+        // Score coloring
 
-        let finalColorData = getColor(countryData['Value'])
+        let finalColorData = getColor(countryData['Value']);
+        let finalBrightness = Math.max(67, finalColorData[2]);
 
-        tooltipScore.style.color = `hsl(
+        let finalColor = `hsl(
             ${finalColorData[0]}, 
             100%, 
-            ${Math.max(65, finalColorData[2])}%
+            ${finalBrightness}%
         )`;
+
+        // Score 3D effect
+
+        let shadowColor = `hsl(
+            ${finalColorData[0] + 10}, 
+            ${64 - 10*inverseNormScore}%, 
+            ${52 - 10*inverseNormScore}%
+        )`;
+
+        tooltipScore.style.color = finalColor;
+        tooltipScore.style.textShadow = `0 3px 0 ${shadowColor}`;
     }
 }
