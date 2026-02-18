@@ -69,7 +69,7 @@ for line in svg:
 
     elif line.startswith('</svg>'):
         # Last line
-        new_text = '<use id="z-index-override" href="#USA"/>' + '\n' + line + '\n'
+        new_text = '<path id="z-index-override" d=""></path>' + '\n' + line + '\n'
 
     elif line.startswith('<path id'):
         # Start of country data ----------------------------------------------------------------------------------------------------------

@@ -137,6 +137,8 @@ function getColor(x) {
 
 // Country loop
 
+const zIndexOverride = document.getElementById('z-index-override');
+
 for (let n = 0; n < countries.length; n++) {
     let pathElement = countries[n];
     let countryData = allCountryData[pathElement.id];
@@ -158,12 +160,14 @@ for (let n = 0; n < countries.length; n++) {
     // End of check for no-data class
 
     pathElement.addEventListener('mouseover', (e) => {
-        // document.getElementById('z-index-override').setAttribute("href", `#${countryData['Code']}`);3
+        console.log(e)
+        let pathData = document.getElementById(countryData['Code']).getAttribute('d');
+        zIndexOverride.setAttribute("d", pathData);
     })
 
     pathElement.addEventListener('mouseenter', (e) => {
         currentlyHoveringOverCode = countryData['Code'];
-        updateTooltip();
+        updateHoverEffects();
     })
     pathElement.addEventListener('mouseout', (e) => {
         currentlyHoveringOverCode = '';
@@ -171,7 +175,7 @@ for (let n = 0; n < countries.length; n++) {
         if (countryData['Code'] == currentlyHoveringOverCode) {
             currentlyHoveringOverCode = '';
         }
-        updateTooltip()
+        updateHoverEffects();
     })
 }
 
@@ -197,10 +201,13 @@ mapContainer.addEventListener('mousemove', (e) => {
 
 // Tooltip updates
 
-function updateTooltip() {
+function updateHoverEffects() {
     let hoverCodeExists = (currentlyHoveringOverCode != '');
 
-    tooltip.style.display = (hoverCodeExists && hasMovedMouse) ? 'flex' : 'none';
+    let showHoverEffects = (hoverCodeExists && hasMovedMouse);
+
+    tooltip.style.display = showHoverEffects ? 'flex' : 'none';
+    zIndexOverride.style.display = showHoverEffects ? '' : 'none';
 
     if (currentlyHoveringOverCode != '') {
         let countryData = allCountryData[currentlyHoveringOverCode];

@@ -22,9 +22,11 @@ body {
     stroke-width: 0.15px;
 }
 
-.country-path:hover {
+#z-index-override {
     stroke: white;
+    fill: transparent;
     stroke-width: 1px;
+    pointer-events: none;
 }
 
 /* ----------------------------- Tooltip ----------------------------- */
