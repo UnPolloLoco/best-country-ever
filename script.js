@@ -41,7 +41,6 @@ for (let n = 0; n < countries.length; n++) {
     allCountryData[pathElement.id] = countryData;
 }
 
-console.log(allCountryData)
 
 
 // Finding min and max
@@ -50,8 +49,6 @@ let cleansedScoreList = scoreList.filter(a => a != null)
 
 const maxScore = Math.max(...cleansedScoreList);
 const minScore = Math.min(...cleansedScoreList);
-
-console.log(minScore, maxScore)
 
 // Interpolation function
 
@@ -160,22 +157,17 @@ for (let n = 0; n < countries.length; n++) {
     // End of check for no-data class
 
     pathElement.addEventListener('mouseover', (e) => {
-        console.log(e)
-        let pathData = document.getElementById(countryData['Code']).getAttribute('d');
+        let pathData = e.target.getAttribute('d');
         zIndexOverride.setAttribute("d", pathData);
     })
 
     pathElement.addEventListener('mouseenter', (e) => {
         currentlyHoveringOverCode = countryData['Code'];
-        updateHoverEffects();
+        updateHoverEffects(e.target);
     })
     pathElement.addEventListener('mouseout', (e) => {
         currentlyHoveringOverCode = '';
-
-        if (countryData['Code'] == currentlyHoveringOverCode) {
-            currentlyHoveringOverCode = '';
-        }
-        updateHoverEffects();
+        updateHoverEffects(e.target);
     })
 }
 
@@ -186,8 +178,8 @@ for (let n = 0; n < countries.length; n++) {
 let currentlyHoveringOverCode = '';
 
 const tooltip = document.getElementById('tooltip');
-const tooltipText = document.getElementById('tooltip-text');
-const tooltipProgress = document.getElementById('value-progress');
+const tooltipLabel = document.getElementById('tooltip-text');
+const tooltipScore = document.getElementById('tooltip-score');
 const mapContainer = document.getElementById('map-container');
 
 let hasMovedMouse = false;
@@ -201,45 +193,69 @@ mapContainer.addEventListener('mousemove', (e) => {
 
 // Tooltip updates
 
-function updateHoverEffects() {
+function updateHoverEffects(target) {
     let hoverCodeExists = (currentlyHoveringOverCode != '');
-
     let showHoverEffects = (hoverCodeExists && hasMovedMouse);
 
-    tooltip.style.display = showHoverEffects ? 'flex' : 'none';
-    zIndexOverride.style.display = showHoverEffects ? '' : 'none';
+    let data = allCountryData[target.id];
+    let score = data['Value'];
+
+    let mainColor;
+    let shadowColor;
+
+    // let tooltipLabelText;
+    let tooltipScoreText;
 
     if (currentlyHoveringOverCode != '') {
-        let countryData = allCountryData[currentlyHoveringOverCode];
-        let normScore = normalizeScore(countryData['Value']);
-        let inverseNormScore = 1 - normScore;
 
-        // Text
-        tooltipText.innerHTML = countryData['Entity'];
+        // --------- SCORE EXISTS? --------- 
+        if (score) {
 
-        let tooltipScore = document.getElementById('tooltip-score');
-        tooltipScore.innerText = (countryData['Value']).toFixed(1);
+            // Normalize Score
+            let normScore = normalizeScore(score);
+            let inverseNormScore = 1 - normScore;
 
-        // Score coloring
+            // Text
+            tooltipScoreText = score.toFixed(1);
+    
+            // Score coloring
+    
+            let mainColorData = getColor(score);
+            let finalBrightness = Math.max(67, mainColorData[2]);
+    
+            mainColor = `hsl(
+                ${mainColorData[0]}, 
+                100%, 
+                ${finalBrightness}%
+            )`;
+    
+            shadowColor = `hsl(
+                ${mainColorData[0] + 10}, 
+                ${64 - 10*inverseNormScore}%, 
+                ${52 - 10*inverseNormScore}%
+            )`;
+        
+        // --------- SCORE DOESNT EXIST? --------- 
 
-        let finalColorData = getColor(countryData['Value']);
-        let finalBrightness = Math.max(67, finalColorData[2]);
+        } else {
+            tooltipScoreText = '– – . –';
+            mainColor = '#888';
+            shadowColor = '#555';
+        }
 
-        let finalColor = `hsl(
-            ${finalColorData[0]}, 
-            100%, 
-            ${finalBrightness}%
-        )`;
 
-        // Score 3D effect
+        
+        
+        // Tooltip text
+        tooltipLabel.innerText = data['Entity'];
+        tooltipScore.innerText = tooltipScoreText;
 
-        let shadowColor = `hsl(
-            ${finalColorData[0] + 10}, 
-            ${64 - 10*inverseNormScore}%, 
-            ${52 - 10*inverseNormScore}%
-        )`;
-
-        tooltipScore.style.color = finalColor;
+        // Tooltip colors
+        tooltipScore.style.color = mainColor;
         tooltipScore.style.textShadow = `0 3px 0 ${shadowColor}`;
     }
+
+    // Tooltip display
+    tooltip.style.display = showHoverEffects ? 'flex' : 'none';
+    zIndexOverride.style.display = showHoverEffects ? '' : 'none';
 }

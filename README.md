@@ -236,9 +236,13 @@ Metadata entry template:
 
 ## To-do
 
+- Look into the French Southern + Antarctic Islands (and its connection to Reunion)
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
+- Country name override
 - Visual indication of low data
 - Better visual indication of no data
 - Consistent visuals for microstates (and other small things)
+  - San Marino?
+  - Vatican City?
 - Get a more detailed Australia
 - Everything else!!
