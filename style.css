@@ -41,7 +41,7 @@ body {
     color: white;
     border: 1px solid white;
     border-radius: 10px;
-    width: 250px;
+    width: 260px;
 
     /* display: flex */
     display: none;
@@ -51,7 +51,7 @@ body {
 
 #tooltip-grid {
     display: grid;
-    grid-template: 50px / 1fr 90px;
+    grid-template: 1fr / 1fr 90px;
     align-items: center;
     gap: 20px;
     width: calc(100% - 40px);
@@ -61,7 +61,10 @@ body {
 #tooltip, #tooltip-grid, #tooltip-text, #tooltip-score { 
     margin: 0;
     padding: 0;
+    /* border: 1px solid red; */
 }
+#tooltip-score { padding: 5px 0; }
+#tooltip-text { padding: 10px 0; }
 
 /* Tooltip content */
 
@@ -87,14 +90,14 @@ body {
     fill: transparent !important;
 }
 
-/*
-.low-data { 
+
+/* .low-data { 
     fill: rgb(255,150,0); 
     stroke: rgba(255,150,0,0.1);
     stroke-width: 18;
-}
+} */
 .no-data { 
     fill: red; 
     stroke: rgba(255,0,0,0.1);
     stroke-width: 18;
-}*/
+}
