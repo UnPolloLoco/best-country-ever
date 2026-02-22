@@ -236,7 +236,6 @@ Metadata entry template:
 
 ## To-do
 
-- Why isn't Hong Kong (and maybe others) considered no data??
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
 - Country name override
 - Visual indication of low data

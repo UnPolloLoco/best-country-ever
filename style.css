@@ -83,12 +83,12 @@ body {
 
 /* ----------------------------- Misc ----------------------------- */
 
-#AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
+/* #AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
     stroke: yellow;
     stroke-width: 1px;
     stroke-width: 0.3px;
     fill: transparent !important;
-}
+} */
 
 
 /* .low-data { 

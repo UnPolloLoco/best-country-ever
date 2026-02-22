@@ -49,6 +49,21 @@ name_replacers = {
     'Palestinian Territories': 'Palestine',
 }
 
+# Circular paths (for small places, like Liechstenstein)
+    # Final circular path: position + standard circle path
+
+circular_path = "m0 .8c1.05 0 1.05-1.6 0-1.6-1.05 0-1.05 1.6 0 1.6"
+
+circular_path_positions = {
+    'AND': 'M 451.87 180.15',
+    'MCO': 'M 465.58 177.04',
+    'LIE': 'M 471.92 166.10',
+    'SGP': 'M 706.23 289.72',
+    'MLT': 'M 484.92 200.86',
+    'BHR': 'M 573.22 226.59',
+    'Hong_Kong': 'M 731.84 236.43',
+}
+
 # Load big data
 
 data_csv = getCSV('../outputs/finalDetailed.csv')
@@ -129,6 +144,11 @@ for line in svg:
             bonus_class = ' low-data'
         if data_accuracy == 0:
             bonus_class = ' no-data'
+
+        # Path override for small countries represented by circles
+
+        if code in circular_path_positions:
+            path = circular_path_positions[code] + circular_path
 
         # Add the text
 
