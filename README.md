@@ -234,14 +234,36 @@ Metadata entry template:
 }
 ```
 
+## File Order
+
+### Data:
+
+1. `data_getCountries.py`
+2. `data_combineData.py`
+3. `data_getFinalData.py`
+4. `data_sortAndCompile.py`  
+
+### Mapping
+
+5. `map_buildSVG.py`
+6. `map_buildWebsite.py` (not done yet)
+
+### Commands
+
+```shell
+python3 snake/data_getCountries.py; 
+python3 snake/data_combineData.py; 
+python3 snake/data_getFinalData.py;
+python3 snake/data_sortAndCompile.py;
+python3 snake/map_buildSVG.py;
+```
+
 ## To-do
 
+- Website template + template loader
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
 - Country name override
 - Visual indication of low data
 - Better visual indication of no data
-- Consistent visuals for microstates (and other small things)
-  - San Marino?
-  - Vatican City?
 - Get a more detailed Australia
 - Everything else!!

@@ -6,12 +6,15 @@
     --shadow: hsla(225, 25%, 10%, 0.4);
     --less-dark: hsl(225, 25%, 18%);
     --less-less-dark: hsl(225, 25%, 35%);
+
+    --Nunito-Sans: "Nunito Sans", sans-serif;
+    --Alfa-Slab-One: "Alfa Slab One", sans-serif;
 }
 
 body {
     background-color: var(--dark);
     color: white;
-    font-family: "Nunito Sans", sans-serif;
+    font-family: var(--Nunito-Sans);
 }
 
 /* ----------------------------- Countries ----------------------------- */
@@ -75,27 +78,27 @@ body {
 
 #tooltip-score {
     font-weight: bold;
-    font-family: "Alfa Slab One";
+    font-family: var(--Alfa-Slab-One);
     font-size: 32px;
     text-align: right;
     /* text-shadow: 0 3px 0 transparent; */
 }
 
+#no-data-first-dash { position: relative; right: 2px; }
+
 /* ----------------------------- Misc ----------------------------- */
 
-/* #AND, #MCO, #LIE, #Hong_Kong, #SGP, #BHR, #MLT {
-    stroke: yellow;
-    stroke-width: 1px;
-    stroke-width: 0.3px;
-    fill: transparent !important;
+/* For seeing islands easier */
+/* .country-path { 
+    stroke: rgba(255,255,255, 0.15);
+    stroke-width: 0.6vw;
 } */
 
-
-/* .low-data { 
-    fill: rgb(255,150,0); 
+.low-data { 
+    fill: rgb(255,150,0) !important; 
     stroke: rgba(255,150,0,0.1);
     stroke-width: 18;
-} */
+}
 .no-data { 
     fill: red; 
     stroke: rgba(255,0,0,0.1);

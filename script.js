@@ -238,7 +238,7 @@ function updateHoverEffects(target) {
         // --------- SCORE DOESNT EXIST? --------- 
 
         } else {
-            tooltipScoreText = '– – . –';
+            tooltipScoreText = '<span id="no-data-first-dash">–</span>–.–';
             mainColor = '#888';
             shadowColor = '#555';
         }
@@ -248,7 +248,7 @@ function updateHoverEffects(target) {
         
         // Tooltip text
         tooltipLabel.innerText = data['Entity'];
-        tooltipScore.innerText = tooltipScoreText;
+        tooltipScore.innerHTML = tooltipScoreText;
 
         // Tooltip colors
         tooltipScore.style.color = mainColor;
