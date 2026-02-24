@@ -258,4 +258,31 @@ function updateHoverEffects(target) {
     // Tooltip display
     tooltip.style.display = showHoverEffects ? 'flex' : 'none';
     zIndexOverride.style.display = showHoverEffects ? '' : 'none';
+
+    // Low/no data indicator
+
+    let isLowData = target.classList.contains('low-data');
+    let isNoData = target.classList.contains('no-data');
+
+    const tnContainer = document.getElementById('tooltip-notice-flex');
+    const tnText = document.getElementById('tooltip-notice');
+
+//     color: rgb(255,170,120);
+//     color: rgb(255, 130, 130);
+// }
+
+    if (isLowData) {
+        // Low data
+        tnContainer.style.display = 'flex';
+        tnText.style.color = 'rgb(255, 170, 120)';
+        tnText.innerText = 'Low Data';
+    } else if (isNoData) {
+        // No data
+        tnContainer.style.display = 'flex';
+        tnText.style.color = 'rgb(255, 130, 130)';
+        tnText.innerText = 'No Data';
+    } else {
+        // Sufficient data
+        tnContainer.style.display = 'none';
+    }
 }

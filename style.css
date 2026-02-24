@@ -34,22 +34,25 @@ body {
 
 /* ----------------------------- Tooltip ----------------------------- */
 
-#tooltip {
+#tooltip, #tooltip-notice-flex {
     pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
     background-color: var(--dark);
     background-color: hsla(225, 25%, 10%, 0.88);
     color: white;
     border: 1px solid white;
     border-radius: 10px;
     width: 260px;
+}
 
+#tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
     /* display: flex */
     display: none;
     align-items: center;
     justify-content: center;
+    font-size: 12px;
 }
 
 #tooltip-grid {
@@ -71,20 +74,32 @@ body {
 
 /* Tooltip content */
 
-#tooltip-text { 
-    font-size: 12px;
-    line-height: 1.18;
-}
+#tooltip-text { line-height: 1.18; }
 
 #tooltip-score {
     font-weight: bold;
     font-family: var(--Alfa-Slab-One);
     font-size: 32px;
     text-align: right;
-    /* text-shadow: 0 3px 0 transparent; */
 }
 
 #no-data-first-dash { position: relative; right: 2px; }
+
+#tooltip-notice-flex {
+    position: absolute;
+    display: flex;
+    top: -1px;
+    right: -58px;
+    margin: 0;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    height: calc(100% + 2px);
+    width: 50px;
+    line-height: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
 /* ----------------------------- Misc ----------------------------- */
 
@@ -94,7 +109,7 @@ body {
     stroke-width: 0.6vw;
 } */
 
-.low-data { 
+/* .low-data { 
     fill: rgb(255,150,0) !important; 
     stroke: rgba(255,150,0,0.1);
     stroke-width: 18;
@@ -103,4 +118,4 @@ body {
     fill: red; 
     stroke: rgba(255,0,0,0.1);
     stroke-width: 18;
-}
+} */
