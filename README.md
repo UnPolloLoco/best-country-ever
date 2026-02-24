@@ -246,7 +246,7 @@ Metadata entry template:
 ### Mapping
 
 5. `map_buildSVG.py`
-6. `map_buildWebsite.py` (not done yet)
+6. `map_buildWebsite.py`
 
 ### Commands
 
@@ -256,11 +256,11 @@ python3 snake/data_combineData.py;
 python3 snake/data_getFinalData.py;
 python3 snake/data_sortAndCompile.py;
 python3 snake/map_buildSVG.py;
+python3 snake/map_buildWebsite.py;
 ```
 
 ## To-do
 
-- Website template + template loader
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
 - Country name override
 - Visual indication of low data
