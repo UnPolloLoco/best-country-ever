@@ -13,7 +13,6 @@ with open(relPath('../mapping/worldMap.svg')) as file:
 new_svg = []
 forbidden_starters = [
     '<?xml',
-    '<defs',
     '<sodipodi:namedview',
     '<text id=',
     '<text xml:space=',
@@ -70,10 +69,14 @@ data_csv = getCSV('../outputs/finalDetailed.csv')
 data_dict = {i[0]: i for i in data_csv}
 
 
-# Condense data
+# Prep
 
 svg = new_svg
 new_svg_string = ''
+
+low_data_paths = []
+
+# Condense data
 
 for line in svg:
     new_text = ''
@@ -83,8 +86,27 @@ for line in svg:
         new_text = '<g>'
 
     elif line.startswith('</svg>'):
-        # Last line
-        new_text = '<path id="z-index-override" d=""></path>' + '\n' + line + '\n'
+        # Last lines
+        new_text = '<g id="low-data-hatching">' + '\n'
+
+        for p in low_data_paths:
+            new_text += '\t' + f'<path d="{p}"></path>' + '\n'
+
+        new_text += '</g>' + '\n'
+        new_text += '<path id="z-index-override" d=""></path>' + '\n' + line + '\n'
+
+    elif line.startswith('<defs'):
+        # New definitions
+        new_text = """<defs>
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="scale(2 -2)">
+        <path d="M-1,1 l2,-2
+                M0,4 l4,-4
+                M3,5 l2,-2" 
+            style="stroke:var(--less-dark); stroke-width:0.6">
+        </path>
+    </pattern>
+</defs>
+"""
 
     elif line.startswith('<path id'):
         # Start of country data ----------------------------------------------------------------------------------------------------------
@@ -153,6 +175,11 @@ for line in svg:
         # Add the text
 
         new_text = f'<path class="country-path{bonus_class}" id="{code}" data-stats="{data_string}" d="{path}"></path>'
+
+        # Prep low-data hatching
+
+        if 'low-data' in bonus_class:
+            low_data_paths.append(path)
 
         # End of country data ----------------------------------------------------------------------------------------------------------
 

@@ -263,6 +263,5 @@ python3 snake/map_buildWebsite.py;
 
 - Use the simplified collision shapes for Canada, Norway, and Russia while visually showing the detailed paths
 - Country name override
-- Visual indication of low data
 - Get a more detailed Australia
 - Everything else!!

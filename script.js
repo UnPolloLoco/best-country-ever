@@ -267,19 +267,15 @@ function updateHoverEffects(target) {
     const tnContainer = document.getElementById('tooltip-notice-flex');
     const tnText = document.getElementById('tooltip-notice');
 
-//     color: rgb(255,170,120);
-//     color: rgb(255, 130, 130);
-// }
-
     if (isLowData) {
         // Low data
         tnContainer.style.display = 'flex';
-        tnText.style.color = 'rgb(255, 170, 120)';
+        tnText.style.color = 'var(--low-data-color)';
         tnText.innerText = 'Low Data';
     } else if (isNoData) {
         // No data
         tnContainer.style.display = 'flex';
-        tnText.style.color = 'rgb(255, 130, 130)';
+        tnText.style.color = 'var(--no-data-color)';
         tnText.innerText = 'No Data';
     } else {
         // Sufficient data
