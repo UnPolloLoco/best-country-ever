@@ -9,9 +9,22 @@
     <body>
         {{ WARNING }}
 
-        <h1>Map:</h1>
-        <p>Map SVG data courtesy of <a href="https://www.mapchart.net/world.html" target="_blank">MapChart</a>.</p>
+        <!-- <h1>Map:</h1>
+        <p>Map SVG data courtesy of <a href="https://www.mapchart.net/world.html" target="_blank">MapChart</a>.</p> -->
 
+        <main>
+            <!-- Map -->
+            <section>
+                {{ MAP SVG }}
+            </section>
+
+            <!-- Sidebar -->
+            <aside>
+                <h1>Map</h1>
+            </aside>
+        </main>
+
+        <!-- Tooltip -->
         <div id="tooltip">
             <div id="tooltip-grid">
                 <p id="tooltip-text"></p>
@@ -20,10 +33,6 @@
             <div id="tooltip-notice-flex">
                 <p id="tooltip-notice"></p>
             </div>
-        </div>
-
-        <div>
-            {{ MAP SVG }}
         </div>
 
         <script src="script.js"></script>

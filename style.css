@@ -5,19 +5,71 @@
     --dark: hsl(225, 25%, 10%);
     --shadow: hsla(225, 25%, 10%, 0.4);
     --less-dark: hsl(225, 25%, 18%);
-    --less-less-dark: hsl(225, 25%, 35%);
+    --less-less-dark: hsl(225, 25%, 25%);
 
     --low-data-color: hsl(30, 100%, 75%);
     --no-data-color: hsl(0, 100%, 75%);
 
     --Nunito-Sans: "Nunito Sans", sans-serif;
     --Alfa-Slab-One: "Alfa Slab One", sans-serif;
+
+    --map-ratio: 1.8991;
+    --aside-width: 300px;
 }
 
 body {
     background-color: var(--dark);
     color: white;
     font-family: var(--Nunito-Sans);
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------- Page Layout ----------------------------- */
+
+main {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template: 1fr / 1fr 300px;
+    overflow: hidden;
+    align-items: center;
+    /* justify-content: space-between; */
+    object-fit: contain;
+}
+/* main > section, main > aside { border: 1px solid red; } */
+
+aside {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30px 15px;
+    background-color: var(--less-less-dark);
+    box-shadow: 0 0 35px var(--dark);
+}
+
+
+/* ----------------------------- Sidebar Content ----------------------------- */
+
+h1 {
+    font-family: var(--Nunito-Sans);
+    font-weight: 800;
+    text-shadow: 0 3px 0 var(--dark);
+}
+
+/* ----------------------------- Map ----------------------------- */
+
+#map-container {
+    /* position: fixed;
+    top: 50vh;
+    left: calc(0.5 * (100vw - var(--aside-width)));
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: -1; */
+    width: calc(100vw - var(--aside-width));
+    height: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    border: 1px solid green;
 }
 
 /* ----------------------------- Countries ----------------------------- */

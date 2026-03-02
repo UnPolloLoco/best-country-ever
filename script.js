@@ -1,4 +1,15 @@
+// -------------------------------------------- CONSTANTS --------------------------------------------
+
 const countries = document.getElementsByClassName('country-path'); 
+
+const tooltip = document.getElementById('tooltip');
+const tooltipLabel = document.getElementById('tooltip-text');
+const tooltipScore = document.getElementById('tooltip-score');
+const mapContainer = document.getElementById('map-container');
+
+const mapAspectRatio = 1.8991;
+
+// -------------------------------------------- CREATE MAP --------------------------------------------
 
 // Extract country data
 
@@ -40,7 +51,6 @@ for (let n = 0; n < countries.length; n++) {
 
     allCountryData[pathElement.id] = countryData;
 }
-
 
 
 // Finding min and max
@@ -154,7 +164,7 @@ for (let n = 0; n < countries.length; n++) {
 
     }
 
-    // End of check for no-data class
+    // Country Listeners 
 
     pathElement.addEventListener('mouseover', (e) => {
         let pathData = e.target.getAttribute('d');
@@ -171,25 +181,19 @@ for (let n = 0; n < countries.length; n++) {
     })
 }
 
+// -------------------------------------------- TOOLTIP --------------------------------------------
 
-
-// Tooltip movement
+// Tooltip Variables
 
 let currentlyHoveringOverCode = '';
-
-const tooltip = document.getElementById('tooltip');
-const tooltipLabel = document.getElementById('tooltip-text');
-const tooltipScore = document.getElementById('tooltip-score');
-const mapContainer = document.getElementById('map-container');
-
 let hasMovedMouse = false;
 
-mapContainer.addEventListener('mousemove', (e) => {
+// Tooltip Positioning
+
+function updateTooltipPos(e) {
     tooltip.style.top = `${e.clientY}px`;
     tooltip.style.left = `${e.clientX + 15}px`;
-
-    hasMovedMouse = true;
-})
+}
 
 // Tooltip updates
 
@@ -282,3 +286,39 @@ function updateHoverEffects(target) {
         tnContainer.style.display = 'none';
     }
 }
+
+// -------------------------------------------- NAVIGATION --------------------------------------------
+
+const navigation = {
+    center:   [447.96, 235.88],
+    zoom:     1,
+    mousePos: [0,0]
+}
+
+function getMapWidth() { return mapContainer.clientWidth; }
+function getMapHeight() { return mapContainer.clientHeight; }
+function isMapTooWide() { return (getMapWidth() / getMapHeight() > mapAspectRatio); }
+
+function getMouseSVGPos() {
+    let xPos;
+    let yPos;
+
+    if (isMapTooWide() == false) {
+        // xPos = navigation.mousePos[0];
+    }
+}
+
+// -------------------------------------------- MISC --------------------------------------------
+
+// MouseMove Listener
+
+mapContainer.addEventListener('mousemove', (e) => {
+    hasMovedMouse = true;
+    navigation.mousePos = [e.clientX, e.clientY];
+
+    console.log(navigation.mousePos)
+    // console.log(getMapWidth(), getMapHeight())
+    console.log(isMapTooWide())
+
+    updateTooltipPos(e);
+})
