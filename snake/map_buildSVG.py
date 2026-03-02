@@ -87,13 +87,22 @@ for line in svg:
 
     elif line.startswith('</svg>'):
         # Last lines
+        # Also removes secondary SVG tag (closing)
         new_text = '<g id="low-data-hatching">' + '\n'
 
         for p in low_data_paths:
             new_text += '\t' + f'<path d="{p}"></path>' + '\n'
 
         new_text += '</g>' + '\n'
-        new_text += '<path id="z-index-override" d=""></path>' + '\n' + line + '\n'
+        new_text += '<path id="z-index-override" d=""></path>' + '\n' + '</g></svg>' + '\n'
+
+    elif line.startswith('<svg id="map-container"'):
+        # Edit main SVG tag
+        new_text = '<svg id="map-container" viewBox="0 0 895.92 471.76" preserveAspectRatio="xMidYMid">' + '\n'
+    
+    elif line.startswith('<g id="map-group">'):
+        # Remove secondary SVG tag (opening)
+        new_text = '<g id="map-group">' + '\n'
 
     elif line.startswith('<defs'):
         # New definitions
