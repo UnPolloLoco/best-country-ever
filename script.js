@@ -296,6 +296,24 @@ const navigation = {
     mousePos: [0,0]
 }
 
+// Default viewbox
+const defaultViewBox = {x:0, y:0, width:895.92, height:471.76}
+
+// Update visuals to what the nav object says
+
+// 0.5^(z-1)
+
+function updateVisualsWithNavigation() {
+    let newWidth = defaultViewBox.width * (0.5 ** (navigation.zoom - 1));
+    let newHeight = defaultViewBox.height * (0.5 ** (navigation.zoom - 1));
+
+    let newX = navigation.center[0] - newWidth/2;
+    let newY = navigation.center[1] - newHeight/2;
+
+    let newViewBox = `${newX} ${newY} ${newWidth} ${newHeight}`;
+    mapContainer.setAttribute('viewBox', newViewBox);
+}
+ 
 // Sizing functions
 
 function getViewbox() {
@@ -362,7 +380,7 @@ function getMouseSVGPos() {
         vb.y + vb.height, 
     );
 
-    return {x:xPos, y:yPos};
+    return [xPos, yPos];
 }
 
 // -------------------------------------------- MISC --------------------------------------------
@@ -375,4 +393,13 @@ mapContainer.addEventListener('mousemove', (e) => {
 
     console.log(getMouseSVGPos())
     updateTooltipPos(e);
+})
+
+// wheel Listener
+
+mapContainer.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    navigation.zoom += e.deltaY * -0.004;
+    // navigation.center = getMouseSVGPos();
+    updateVisualsWithNavigation();
 })
