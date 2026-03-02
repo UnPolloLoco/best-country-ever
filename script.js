@@ -289,36 +289,90 @@ function updateHoverEffects(target) {
 
 // -------------------------------------------- NAVIGATION --------------------------------------------
 
+// Main nav object
 const navigation = {
     center:   [447.96, 235.88],
     zoom:     1,
     mousePos: [0,0]
 }
 
-function getMapWidth() { return mapContainer.clientWidth; }
-function getMapHeight() { return mapContainer.clientHeight; }
-function isMapTooWide() { return (getMapWidth() / getMapHeight() > mapAspectRatio); }
+// Sizing functions
+
+function getViewbox() {
+    let viewObj = {}
+    let viewList = mapContainer.getAttribute('viewBox').split(' ');
+
+    for (let i = 0; i < 4; i++) {
+        viewObj[['x','y','width','height'][i]] = parseFloat(viewList[i]);
+    }
+
+    return viewObj;
+}
+
+function getMapContainerWidth() { return mapContainer.clientWidth; }
+function getMapContainerHeight() { return mapContainer.clientHeight; }
+function isMapTooWide() { return (getMapContainerWidth() / getMapContainerHeight() > mapAspectRatio); }
+
+function getRealMapWidth() {
+    if (isMapTooWide()) { return getMapContainerHeight() * mapAspectRatio; } 
+    else { return getMapContainerWidth(); }
+}
+function getRealMapHeight() {
+    if (isMapTooWide()) { return getMapContainerHeight(); } 
+    else { return getMapContainerWidth() / mapAspectRatio; }
+}
+
+function getMapTopPadding() {
+    if (isMapTooWide()) { return 0; } 
+    else { return (getMapContainerHeight() - getRealMapHeight()) / 2; }
+}
+function getMapLeftPadding() {
+    if (isMapTooWide()) { return (getMapContainerWidth() - getRealMapWidth()) / 2; } 
+    else { return 0; }
+}
+
+// Get mouse poisition in SVG viewbox
 
 function getMouseSVGPos() {
     let xPos;
     let yPos;
 
-    if (isMapTooWide() == false) {
-        // xPos = navigation.mousePos[0];
+    if (isMapTooWide()) {
+        // Left padding exists
+        xPos = navigation.mousePos[0] - getMapLeftPadding();
+        yPos = navigation.mousePos[1];
+    } else {
+        // Top padding exists
+        xPos = navigation.mousePos[0];
+        yPos = navigation.mousePos[1] - getMapTopPadding();
     }
+
+    let vb = getViewbox();
+
+    xPos = interpolate(
+        xPos,
+        0, getRealMapWidth(),
+        vb.x, 
+        vb.x + vb.width, 
+    );
+    yPos = interpolate(
+        yPos,
+        0, getRealMapHeight(),
+        vb.y, 
+        vb.y + vb.height, 
+    );
+
+    return {x:xPos, y:yPos};
 }
 
 // -------------------------------------------- MISC --------------------------------------------
 
-// MouseMove Listener
+// mousemove Listener
 
 mapContainer.addEventListener('mousemove', (e) => {
     hasMovedMouse = true;
     navigation.mousePos = [e.clientX, e.clientY];
 
-    console.log(navigation.mousePos)
-    // console.log(getMapWidth(), getMapHeight())
-    console.log(isMapTooWide())
-
+    console.log(getMouseSVGPos())
     updateTooltipPos(e);
 })
