@@ -269,3 +269,6 @@ python3 snake/map_buildWebsite.py;
 - Ranking list in sidebar
 - Click country to see more
 - Something outside of the map so Russia isn't weirdly cut off + floating
+- Scale with zoom
+  - Borders (normal + selected)
+  - Low data hatching

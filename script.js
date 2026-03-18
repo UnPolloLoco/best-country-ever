@@ -296,6 +296,8 @@ const navigation = {
     mousePos: [0,0]
 }
 
+navigation.center = [470, 170]; // temporary
+
 // Default viewbox
 const defaultViewBox = {x:0, y:0, width:895.92, height:471.76}
 
