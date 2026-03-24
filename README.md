@@ -4,6 +4,8 @@ This repo contains datasets and mapping for the purpose of finding the best and 
 
 ## Mapping Citation
 
+All files listed here are in the `mapping` folder.
+
 ### MapChart Simple World Map (2026)
 
   The original SVG data for the world map used here is from MapChart.net: https://www.mapchart.net/world.html. The data is shared under [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). MapChart's SVG has been modified, but the original country shapes are almost completely unchanged.
@@ -12,6 +14,8 @@ This repo contains datasets and mapping for the purpose of finding the best and 
 
 
 ## Data Citations
+
+All files listed here are in the `data` folder.
 
 ### Democracy Index (2024)
 
@@ -214,6 +218,22 @@ This repo contains datasets and mapping for the purpose of finding the best and 
 
   File: `undernourishment.csv`  
   Data: Percentage; 0% to 51.3%
+
+
+
+## Citations for Other Data
+
+All files listed here are in the `data/other` folder.
+
+### Population (2023)
+
+  UN, World Population Prospects (2024) – processed by Our World in Data. “Population, total – UN WPP” [dataset]. United Nations, “World Population Prospects” [original data].
+  Source: UN, World Population Prospects (2024) – processed by Our World In Data
+
+  File: `population.csv`   
+  Data: Number of people
+
+
 
 ## Miscellaneous
 
