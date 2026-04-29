@@ -296,7 +296,11 @@ const navigation = {
     mousePos: [0,0]
 }
 
-navigation.center = [470, 170]; // temporary
+// Other navigation variables
+let isMouseDown = false;
+let lastMousePos;
+
+// navigation.center = [470, 170]; // temporary
 
 // Default viewbox
 const defaultViewBox = {x:0, y:0, width:895.92, height:471.76}
@@ -306,8 +310,12 @@ const defaultViewBox = {x:0, y:0, width:895.92, height:471.76}
 // 0.5^(z-1)
 
 function updateVisualsWithNavigation() {
-    let newWidth = defaultViewBox.width * (0.5 ** (navigation.zoom - 1));
-    let newHeight = defaultViewBox.height * (0.5 ** (navigation.zoom - 1));
+    let trueZoom = 0.5 ** -(navigation.zoom - 1);
+
+    let newWidth = defaultViewBox.width / trueZoom;
+    let newHeight = defaultViewBox.height / trueZoom;
+
+    // console.log(Math.round(trueZoom*100)/100, '    ', Math.round(navigation.zoom*100)/100)
 
     let newX = navigation.center[0] - newWidth/2;
     let newY = navigation.center[1] - newHeight/2;
@@ -385,7 +393,7 @@ function getMouseSVGPos() {
     return [xPos, yPos];
 }
 
-// -------------------------------------------- MISC --------------------------------------------
+// -------------------------------------------- LISTENERS --------------------------------------------
 
 // mousemove Listener
 
@@ -393,7 +401,18 @@ mapContainer.addEventListener('mousemove', (e) => {
     hasMovedMouse = true;
     navigation.mousePos = [e.clientX, e.clientY];
 
-    console.log(getMouseSVGPos())
+    if (isMouseDown) {
+        if (!lastMousePos) { lastMousePos = navigation.mousePos; };
+        let trueZoom = 0.5 ** -(navigation.zoom - 1);
+
+        navigation.center = [
+            navigation.center[0] + (lastMousePos[0] - navigation.mousePos[0]) / trueZoom,
+            navigation.center[1] + (lastMousePos[1] - navigation.mousePos[1]) / trueZoom,
+        ];
+        lastMousePos = navigation.mousePos;
+        updateVisualsWithNavigation()
+    }
+
     updateTooltipPos(e);
 })
 
@@ -402,6 +421,20 @@ mapContainer.addEventListener('mousemove', (e) => {
 mapContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
     navigation.zoom += e.deltaY * -0.004;
-    // navigation.center = getMouseSVGPos();
+    
+    let mp = getMouseSVGPos();
+
     updateVisualsWithNavigation();
+    console.log(getMouseSVGPos(), z)
 })
+
+updateVisualsWithNavigation()
+
+// mousedown/mouseup Listeners
+
+mapContainer.addEventListener('mousedown', (e) => { 
+    navigation.mousePos = [e.clientX, e.clientY];
+    isMouseDown = true;  
+    lastMousePos = navigation.mousePos;
+});
+mapContainer.addEventListener('mouseup',   (e) => { isMouseDown = false; });
